@@ -1,0 +1,53 @@
+#Garage Open Notifier      
+- alias: "Garage Open Notify"
+  trigger:
+    - platform: state
+      entity_id: sensor.garage_status
+      to: 'open'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: device_tracker.pixelxl_pixelxl
+        state: not_home
+        for:
+          minutes: 2
+      - condition: state
+        entity_id: device_tracker.pixelxl_pixelxl
+        state: "Zach's"
+        for:
+          minutes: 2
+      - condition: state
+        entity_id: device_tracker.pixelxl_pixelxl
+        state: Work
+        for:
+          minutes: 2
+      - condition: state
+        entity_id: device_tracker.pixelxl_pixelxl
+        state: "Mom & Dad's"
+        for:
+          minutes: 2
+      - condition: state
+        entity_id: device_tracker.pixelxl_pixelxl
+        state: "Derek & Ruby's"
+        for:
+          minutes: 2
+  action:
+      service: notify.gmail
+      data:
+        title: 'GARAGE OPEN ALERT!!!'
+        message: 'The garage was detected open.'
+        
+#Garage Offline Notifier
+- alias: "Garage Offline Notify"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.garage_control_online
+      to: 'off'
+      for:
+        minutes: 5
+  action:
+      service: notify.gmail
+      data:
+        title: 'GARAGE OFFLINE ALERT!!!'
+        message: 'The garage went offline.'

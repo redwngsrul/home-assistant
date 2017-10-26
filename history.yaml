@@ -1,0 +1,39 @@
+exclude:
+  domains:
+    - automation
+    - media_player
+    - input_select
+    - group
+    - camera
+    - script
+  entities:
+    - switch.den_camera_recording
+    - switch.living_rm_camera_recording
+    - switch.garage_camera_recording
+    - sun.sun
+#    - sensor.den_motion
+    - sensor.den_motion_out
+#    - sensor.garage_motion
+    - sensor.garage_motion_out
+#    - sensor.living_room_motion
+    - sensor.living_rm_motion_out
+    - sensor.den_sound
+    - sensor.den_sound_out
+    - sensor.garage_sound
+    - sensor.garage_sound_out
+    - sensor.living_room_sound
+    - sensor.living_rm_sound_out
+    - sensor.garage_status_abbr
+    - sensor.garage_status
+    - sensor.current_ps4_id
+    - sensor.time
+    - sensor.date
+    - sensor.speedtest
+    - sensor.vacation_monitor
+    - sensor.yr_symbol
+    - sensor.moon
+    - sensor.last_boot
+    - sensor.ipv4_address_wlp3s0
+    - input_slider.off_tmr_slider
+    - cover.den_volume_control
+    - cover.living_room_volume

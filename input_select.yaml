@@ -1,0 +1,36 @@
+select_cast:
+  name: Select Cast Device
+  options:
+    - Living Room CC
+    - Den CC Ultra
+    - Google Home
+    - Bedroom CC
+    - Garage Audio
+    - Den Audio
+    - All Speakers
+    - "None"
+  initial: "None"
+  icon: mdi:cast
+
+pandora_station:
+  name: Pandora Station Select
+  options:
+    - Thumbprint
+    - Excellent Mix
+    - "None"
+  initial: "None"
+  icon: mdi:radio
+
+select_cast_off:
+  name: Select Cast Device
+  options:
+    - Living Room CC
+    - Den CC Ultra
+    - Google Home
+    - Bedroom CC
+    - Garage Audio
+    - Den Audio
+    - All Speakers
+    - "None"
+  initial: 'Bedroom CC'
+  icon: mdi:cast

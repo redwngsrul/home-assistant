@@ -1,0 +1,6 @@
+# - alias: PS4 - State change
+  # trigger:
+      # platform: state
+      # entity_id: sensor.current_ps4_id
+  # action:   
+    # - service: shell_command.ps4_currentapp_update

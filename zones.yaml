@@ -1,0 +1,29 @@
+- name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  radius: 250
+  icon: mdi:home-variant
+  
+- name: Work
+  latitude: !secret lat_work
+  longitude: !secret long_work
+  radius: 450
+  icon: mdi:worker
+  
+- name: Mom & Dad's
+  latitude: !secret lat_momdad
+  longitude: !secret long_momdad
+  radius: 150
+  icon: mdi:account-multiple
+
+- name: Zach's
+  latitude: !secret lat_zachs
+  longitude: !secret long_zachs
+  radius: 150
+  icon: mdi:account-multiple-outline
+
+- name: Derek & Ruby's
+  latitude: !secret d_r_lat
+  longitude: !secret d_r_long
+  radius: 250
+  icon: mdi:account-multiple

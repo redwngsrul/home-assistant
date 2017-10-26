@@ -1,0 +1,35 @@
+- platform: command_line
+  command: 'ping -c 1 192.168.1.86 | grep "1 received" | wc -l'
+  name: 'Garage Control Online'
+  sensor_class: connectivity
+  payload_on: 1
+  payload_off: 0
+  
+#- platform: mqtt
+#  state_topic: kitchen/motion
+#  name: Kitchen Motion
+#  qos: 0
+#  payload_on: MOTION
+#  payload_off: NOMOTION
+#  device_class: motion
+
+- platform: command_line
+  command: !secret den_cam_rcrding
+  name: 'Den Camera Recording'
+#  sensor_class: None
+  payload_on: 1
+  payload_off: 0
+
+- platform: command_line
+  command: !secret liv_rm_cam_rcrding
+  name: 'Living Room Camera Recording'
+#  sensor_class: None
+  payload_on: 1
+  payload_off: 0
+
+- platform: command_line
+  command: !secret garage_cam_rcrding
+  name: 'Garage Camera Recording'
+#  sensor_class: None
+  payload_on: 1
+  payload_off: 0

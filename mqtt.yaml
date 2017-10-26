@@ -1,0 +1,17 @@
+﻿broker: 127.0.0.1
+port: 1883
+client_id: home-assistant-1
+protocol: 3.1
+keepalive: 50
+username: user
+password: pass
+birth_message:
+  topic: 'hass/status'
+  payload: 'online'
+  qos: 1
+  retain: true
+will_message:
+  topic: 'hass/status'
+  payload: 'offline'
+  qos: 1
+  retain: true

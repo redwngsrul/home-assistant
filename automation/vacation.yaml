@@ -1,0 +1,107 @@
+#turn on dining light @ 5am weekdays
+- alias: 'dining light vacation'
+  initial_state: false
+  trigger:
+    platform: time
+    at: '18:30:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: switch.turn_on
+      entity_id: switch.dining_room_light
+
+#turn off dining light @ 6am weekdays    
+- alias: 'dining light OFF vacation'
+  initial_state: false
+  trigger:
+    platform: time
+    at: '22:00:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: switch.turn_off
+      entity_id: switch.dining_room_light
+
+#turn on bottle lamp @ 5am weekdays
+- alias: 'bottle lamp vacation'
+  initial_state: false
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: switch.turn_on
+      entity_id: switch.bottle_lamp
+
+#turn off dining light @ 6am weekdays    
+- alias: 'bottle lamp OFF vacation'
+  initial_state: false
+  trigger:
+    platform: time
+    at: '22:30:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: switch.turn_off
+      entity_id: switch.bottle_lamp
+      
+#turn on laundry light @ 545am weekdays
+- alias: 'den light vacation'
+  initial_state: false
+  trigger:
+    platform: time
+    at: '19:30:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: switch.turn_on
+      entity_id: switch.den_light
+
+#turn off laundry light @ 610am weekdays    
+- alias: 'den light OFF vacation'
+  initial_state: false
+  trigger:
+    platform: time
+    at: '22:30:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: switch.turn_off
+      entity_id: switch.den_light

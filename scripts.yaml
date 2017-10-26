@@ -1,0 +1,156 @@
+reboot_pi:
+  sequence:
+    - service: shell_command.reboot_pi
+
+open_garage:
+  sequence:
+    - service: cover.open_cover
+      entity_id: cover.garage
+    
+sleep_tmr:
+  alias: "Sleep 60"
+  sequence:
+    - delay: '00:60:00'
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.alexs_bedroom
+      
+chromecast_off_tmr:
+  alias: "Run Sleep Script"
+  sequence:
+    - delay: '00:{{ states.input_number.off_tmr_slider.state | int }}:00'
+    - service: media_player.turn_off
+      data_template:
+        entity_id: >
+          {% if is_state("input_select.select_cast_off", "Living Room CC") %}
+            media_player.alexs_living_room
+          {%-elif is_state("input_select.select_cast_off", "Bedroom CC") %}
+            media_player.alexs_bedroom
+          {%-elif is_state("input_select.select_cast_off", "Den CC Ultra") %}
+            media_player.den_cc_ultra
+          {%-elif is_state("input_select.select_cast_off", "Google Home") %}
+            media_player.alexs_google_home
+          {%-elif is_state("input_select.select_cast_off", "Garage Audio") %}
+            media_player.garage_audio
+          {%-elif is_state("input_select.select_cast_off", "Den Audio") %}
+            media_player.den_audio
+          {%-elif is_state("input_select.select_cast_off", "All Speakers") %}
+            media_player.all_speakers
+          {% else %}
+            "None"
+          {% endif %}
+    - service: script.turn_off
+      data:
+        entity_id: script.chromecast_off_tmr
+        
+play_playstation4:
+  alias: "Play PS4"
+  sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.playstation4
+    - service: switch.turn_on
+      data:
+        entity_id: switch.den_subwoofer
+    - service: shell_command.receiver_power_toggle
+    - service: shell_command.projector_power_on
+    - delay:
+        seconds: 8
+    - service: shell_command.receiver_input_bd
+    
+play_turn_off:
+  alias: "Turn Off Game Equipment"
+  sequence:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.playstation4
+    - service: switch.turn_off
+      data:
+        entity_id: switch.den_subwoofer
+    - service: shell_command.receiver_power_toggle
+    - delay:
+        seconds: 1
+    - service: shell_command.projector_power_off
+    - service: shell_command.projector_power_off
+    - service: shell_command.projector_power_off
+    - service: shell_command.projector_power_off
+    - service: shell_command.projector_power_off
+    
+music_in_den:
+  alias: "Listen to Music in the Den"
+  sequence:
+    - service: shell_command.receiver_power_toggle
+    - delay:
+        seconds: 8
+    - service: shell_command.receiver_input_dvd
+    - service: switch.turn_on
+      data:
+        entity_id: switch.den_subwoofer
+        
+living_room_tv_on:
+  alias: "Living Room TV"
+  sequence:
+    - service: shell_command.google_tv_power_on
+    - service: shell_command.soundbar_power_toggle
+    - service: shell_command.google_tv_power_on
+    - service: shell_command.google_tv_power_on
+    - service: shell_command.google_tv_power_on
+
+living_room_tv_off:
+  alias: "Living Room Shutdown"
+  sequence:
+    - service: shell_command.google_tv_power_off
+    - service: shell_command.soundbar_power_toggle
+    - delay:
+        seconds: 3    
+    - service: shell_command.google_tv_power_off
+    - service: shell_command.google_tv_power_off
+    - service: shell_command.google_tv_power_off
+    
+depart_work:
+  alias: "Leaving for Work"
+  sequence:
+    - service: script.turn_on
+      data:
+        entity_id: script.living_room_tv_off
+    - service: switch.turn_off
+      data:
+        entity_id: switch.dining_room_light
+    - service: switch.turn_off
+      data:
+        entity_id: switch.bottle_lamp
+    - service: cover.open_cover
+      data:
+        entity_id: cover.garage
+    
+motion_sensing:
+  alias: "Motion Sensing"
+  sequence:
+    - service: automation.toggle
+      data:
+        entity_id: automation.den_lamp_on
+    - service: automation.toggle
+      data:
+        entity_id: automation.den_lamp_off
+        
+vacation:
+  alias: "Vacation"
+  sequence:
+    - service: automation.toggle
+      data:
+        entity_id: automation.bottle_lamp_vacation
+    - service: automation.toggle
+      data:
+        entity_id: automation.bottle_lamp_off_vacation
+    - service: automation.toggle
+      data:
+        entity_id: automation.den_light_vacation
+    - service: automation.toggle
+      data:
+        entity_id: automation.den_light_off_vacation
+    - service: automation.toggle
+      data:
+        entity_id: automation.dining_light_vacation
+    - service: automation.toggle
+      data:
+        entity_id: automation.dining_light_off_vacation

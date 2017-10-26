@@ -1,0 +1,149 @@
+#DEN LAMP
+- platform: mqtt
+  name: Den Light
+  state_topic: "home/sonoff/living_room/1/stat"
+  command_topic: "home/sonoff/living_room/1"
+  qos: 1
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+#DEN SUBWOOFER
+- platform: mqtt
+  name: Den Subwoofer
+  state_topic: "home/sonoff/den_sub/1/stat"
+  command_topic: "home/sonoff/den_sub/1"
+  qos: 1
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+#FRONT LIGHT  
+- platform: mqtt
+  name: Bottle Lamp
+  state_topic: "home/sonoff/front_room/1/stat"
+  command_topic: "home/sonoff/front_room/1"
+  qos: 1
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+#DINING ROOM LIGHT
+- platform: mqtt
+  name: Dining Room Light
+  state_topic: "home/sonoff/dining_room/1/stat"
+  command_topic: "home/sonoff/dining_room/1"
+  qos: 1
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+  
+#LAUNDRY LIGHT
+- platform: mqtt
+  name: Laundry Light
+  state_topic: "dual/laundry/relay1"
+  command_topic: "dual/laundry/relay1/set"
+  qos: 1
+  payload_on: "1"
+  payload_off: "0"
+  retain: true
+ 
+#FIREPLACE LIGHT 
+- platform: mqtt
+  name: Fireplace Light
+  state_topic: "dual/fireplace/relay1"
+  command_topic: "dual/fireplace/relay1/set"
+  qos: 1
+  payload_on: "1"
+  payload_off: "0"
+  retain: true
+  
+#PLAYSTATION 4  
+- platform: command_line
+  switches:
+    playstation4:
+      command_on: 'ps4-waker'
+      command_off: 'ps4-waker standby'
+      command_state: 'nc -z -w 5 192.168.1.66 9295 | nc -z -w 5 192.168.1.72 9295'
+      friendly_name: "PlayStation 4"
+
+#Family Room LIGHT
+- platform: mqtt
+  name: Living Room Light
+  state_topic: "home/family-room/lamp/stat"
+  command_topic: "home/family-room/lamp"
+  qos: 1
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+  
+#NEON LIGHT DUAL SONOFF
+- platform: mqtt
+  name: Neons
+  state_topic: "dual/neons/relay1"
+  command_topic: "dual/neons/relay1/set"
+  qos: 1
+  payload_on: "1"
+  payload_off: "0"
+  retain: true
+  
+#WOL
+- platform: wake_on_lan
+  mac_address: !secret desktop_mac_addr
+  name: Desktop
+  host: 192.168.1.89
+  turn_off:
+    service: shell_command.turn_off_desktop
+  
+#FISH TANK WHITE
+- platform: mqtt
+  name: Fish Tank White Light
+  state_topic: "home-assistant/fish-tank/white"
+  command_topic: "home-assistant/fish-tank"
+  qos: 1
+  payload_on: "WHITE"
+  payload_off: "OFF"
+  retain: true
+  
+#FISH TANK BLUE
+- platform: mqtt
+  name: Fish Tank Blue Light
+  state_topic: "home-assistant/fish-tank/blue"
+  command_topic: "home-assistant/fish-tank"
+  qos: 1
+  payload_on: "BLUE"
+  payload_off: "OFF"
+  retain: true
+  
+#DEN Camera Motion
+- platform: command_line
+  switches:
+   #Switch for Foscam Motion Detection Recording
+   den_camera_recording:
+     command_on: !secret den_cmd_on
+     command_off: !secret den_cmd_off
+     command_state: !secret den_cmd_state
+     value_template: '{{ value == "8" }}'
+     friendly_name: Den Cam Record Motion
+     
+#Living Room Camera Motion
+- platform: command_line
+  switches:
+   #Switch for Foscam Motion Detection Recording
+   living_rm_camera_recording:
+     command_on: !secret living_rm_cmd_on
+     command_off: !secret living_rm_cmd_off
+     command_state: !secret living_rm_cmd_state
+     value_template: '{{ value == "8" }}'
+     friendly_name: Living Room Cam Record Motion
+    
+#Garage Camera Motion
+- platform: command_line
+  switches:
+   #Switch for Foscam Motion Detection Recording
+   garage_camera_recording:
+     command_on: !secret garage_cmd_on
+     command_off: !secret garage_cmd_off
+     command_state: !secret garage_cmd_state
+     value_template: '{{ value == "8" }}'
+     friendly_name: Garage Cam Record Motion

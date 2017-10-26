@@ -1,0 +1,29 @@
+#Turn Camera Recordings ON
+- alias: "Camera Recordings ON"
+  trigger:
+    - platform: state
+      entity_id: device_tracker.pixelxl_pixelxl
+      from: 'home'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.den_camera_recording
+    - service: switch.turn_on
+      entity_id: switch.living_rm_camera_recording
+    - service: switch.turn_on
+      entity_id: switch.garage_camera_recording
+        
+#Turn Camera Recordings OFF
+- alias: "Camera Recordings OFF"
+  trigger:
+    - platform: state
+      entity_id: device_tracker.pixelxl_pixelxl
+      to: 'home'
+      for:
+        minutes: 3
+  action:
+    - service: switch.turn_off
+      entity_id: switch.den_camera_recording
+    - service: switch.turn_off
+      entity_id: switch.living_rm_camera_recording
+    - service: switch.turn_off
+      entity_id: switch.garage_camera_recording

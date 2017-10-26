@@ -1,0 +1,17 @@
+exclude:
+  domains:
+    - input_select
+  entities:
+    - sensor.time
+    - sensor.date
+    - sensor.speedtest
+    - sensor.last_boot
+    - sensor.ipv4_address_wlp3s0
+    - script.motion_sensing
+    - sensor.den_motion
+    - sensor.garage_motion
+    - sensor.living_room_motion
+    - sensor.den_sound
+    - sensor.garage_sound
+    - sensor.living_room_sound
+    - sensor.garage_status_abbr

@@ -1,0 +1,44 @@
+﻿#- platform: local_file
+#  name: Main Pi Image
+#  file_path: /home/redwngsrul/picture.jpg
+  
+# - platform: local_file
+  # name: Remote Pi Image
+  # file_path: /home/redwngsrul/pictures/picture.jpg
+
+- platform: foscam
+  name: Living Room Video
+  ip: 192.168.1.96
+  port: 88
+  username: !secret cam_un
+  password: !secret cam_pw
+
+- platform: foscam
+  name: Den Video
+  ip: 192.168.1.97
+  port: 88
+  username: !secret cam_un
+  password: !secret cam_pw
+
+- platform: foscam
+  name: Garage Video
+  ip: 192.168.1.98
+  port: 88
+  username: !secret cam_un
+  password: !secret cam_pw
+
+- platform: mjpeg
+  mjpeg_url: http://192.168.1.94:8080/?action=stream
+  name: Den 2 Cam
+  
+# - platform: mjpeg
+  # mjpeg_url: http://192.168.1.95:8080
+  # name: Living Room 2 Cam
+  
+# - platform: local_file
+  # name: Currently Playing
+  # file_path: /home/redwngsrul/.homeassistant/www/ps4cam/currentgame.jpg
+
+#- platform: generic
+#  still_image_url: radar.weather.gov/ridge/Conus/centgrtlakes_loop.php
+#  name: Weather

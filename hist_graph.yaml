@@ -1,0 +1,7 @@
+gr1:
+  name: Temperature Graph
+  entities:
+    - sensor.weather_temperature
+    - sensor.garage_temp
+  hours_to_show: 24
+  refresh: 30

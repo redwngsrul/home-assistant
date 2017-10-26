@@ -1,0 +1,84 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+  customize: !include customize.yaml
+
+http:
+  api_password: !secret http_password
+  ssl_certificate: !secret sslcert
+  ssl_key: !secret sslkey
+  base_url: !secret urlname
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
+
+automation: !include_dir_merge_list automation
+#automation: !include automations.yaml
+binary_sensor: !include binary_sensors.yaml
+camera: !include cameras.yaml
+conversation:
+config:
+cover: !include cover.yaml
+device_tracker: !include device_trackers.yaml
+discovery:
+emulated_hue:
+  type: google_home
+  host_ip: 192.168.1.68
+  listen_port: 80
+  off_maps_to_on_domains:
+    - script
+  expose_by_default: true
+  exposed_domains:
+#    - switch
+    - script
+frontend: !include frontend.yaml
+google_assistant:
+  project_id: homeassistant-88993
+  client_id: !secret goog_client_id
+  access_token: !secret goog_access_tok
+  exposed_domains:
+    - switch
+    - cover
+    - media_player
+group: !include group.yaml
+history: !include history.yaml
+history_graph: !include hist_graph.yaml
+#input_boolean: !include input_boolean.yaml
+input_select: !include input_select.yaml
+input_number: !include input_slider.yaml
+logbook: !include logbook.yaml
+logger:
+  default: error
+  logs:
+    homeassistant.components.camera: error
+map:
+media_player:
+  - platform: cast
+mqtt: !include mqtt.yaml
+notify: !include notifiers.yaml
+panel_iframe:
+  configurator:
+    title: 'Yaml Editor'
+    icon: mdi:wrench
+    url: !secret yaml_editor_url
+  configurator2:
+    title: 'Yaml Editor Home'
+    icon: mdi:wrench
+    url: !secret yaml_editor_url_home
+#recorder:
+#  purge_days: 14
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+shell_command: !include shell_commands.yaml
+sun:
+switch: !include switch.yaml
+tts:
+  - platform: google
+updater:
+#0.47.0  include_used_components: true
+zone: !include zones.yaml

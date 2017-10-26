@@ -1,0 +1,122 @@
+#turn on dining light @ 5am weekdays
+- alias: 'dining light ON weekdays'
+  initial_state: true
+  trigger:
+    platform: time
+    at: '05:00:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: switch.turn_on
+      entity_id: switch.dining_room_light
+
+#turn off dining light @ 6am weekdays    
+- alias: 'dining light OFF weekdays'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: device_tracker.pixelxl_pixelxl
+      from: "home"
+    - platform: time
+      at: '07:59:45'
+  condition:
+    condition: time
+    after: '05:00:00'
+    before: '08:00:00'
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: switch.turn_off
+      entity_id: switch.dining_room_light
+
+#turn on bottle lamp @ 5am weekdays
+- alias: 'bottle lamp ON weekdays'
+  initial_state: true
+  trigger:
+    platform: time
+    at: '05:00:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: switch.turn_on
+      entity_id: switch.bottle_lamp
+
+#turn off dining light @ 6am weekdays    
+- alias: 'bottle lamp OFF weekdays'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: device_tracker.pixelxl_pixelxl
+      from: "home"
+    - platform: time
+      at: '07:59:45'
+  condition:
+    condition: time
+    after: '05:00:00'
+    before: '08:00:00'
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: switch.turn_off
+      entity_id: switch.bottle_lamp
+      
+#turn on laundry light @ 545am weekdays
+- alias: 'laundry light ON weekdays'
+  initial_state: true
+  trigger:
+    platform: time
+    at: '05:45:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: switch.turn_on
+      entity_id: switch.laundry_light
+
+#turn off laundry light @ 610am weekdays    
+- alias: 'laundry light OFF weekdays'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: device_tracker.pixelxl_pixelxl
+      from: "home"
+    - platform: time
+      at: '07:59:45'
+  condition:
+    condition: time
+    after: '05:45:00'
+    before: '08:00:00'
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: switch.turn_off
+      entity_id: switch.laundry_light

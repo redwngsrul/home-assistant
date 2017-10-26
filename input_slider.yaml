@@ -1,0 +1,6 @@
+off_tmr_slider:
+  name: Sleep Delay Time
+  initial: 30
+  min: 0
+  max: 120
+  step: 30

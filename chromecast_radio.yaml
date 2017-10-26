@@ -1,0 +1,46 @@
+- alias: START streaming pandora on chromecast
+  trigger:
+    - platform: state
+      entity_id: input_select.pandora_station
+      from: "None"
+  action:
+      service: media_player.play_media
+      data_template:
+           entity_id: >
+                {% if is_state("input_select.select_cast", "Living Room CC") %}
+                  media_player.alexs_living_room
+                {%-elif is_state("input_select.select_cast", "Bedroom CC") %}
+                  media_player.alexs_bedroom
+                {%-elif is_state("input_select.select_cast", "CC Audio") %}
+                  media_player.chromecast_audio
+                {% else %}
+                  "None"
+                {% endif %}
+           media_content_id: >
+                {% if is_state("input_select.pandora_station", "Thumbprint") %}
+                  https://www.pandora.com/station/play/3170599090686456662
+                {%-elif is_state("input_select.pandora_station", "Excellent Mix") %}
+                  https://www.pandora.com/station/play/852916256797029206
+                {% else %}
+                  "None"
+                {% endif %}
+           media_content_type: "music"
+
+- alias: STOP streaming pandora on chromecast
+  trigger:
+    - platform: state
+      entity_id: input_select.pandora_station
+      to: "None"
+  action:
+      service: media_player.turn_off
+      data_template:
+          entity_id: >
+                {% if is_state("input_select.select_cast", "Living Room CC") %}
+                  media_player.alexs_living_room
+                {%-elif is_state("input_select.select_cast", "Bedroom CC") %}
+                  media_player.alexs_bedroom
+                {%-elif is_state("input_select.select_cast", "CC Audio") %}
+                  media_player.chromecast_audio
+                {% else %}
+                  "None"
+                {% endif %}

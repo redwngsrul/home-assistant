@@ -1,0 +1,178 @@
+- platform: yr
+  name: "Weather"
+  monitored_conditions:
+    - cloudiness
+    - humidity
+    - precipitation
+    - pressure
+    - symbol
+    - temperature
+    - windDirection
+    - windSpeed
+
+- platform: moon
+
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+
+- platform: command_line
+  name: SSL Cert Expiry
+  unit_of_measurement: days
+  scan_interval: 21600
+  command: !secret ssl_cert_expire_cmd
+
+- platform: command_line
+  name: Current PS4 App
+  command: ps4-waker search | grep -w "running-app-name" | cut -c 24- | rev | cut -c 3-  | rev | sed 's/[!@#\$%^&*(®)™]//g'
+  scan_interval: 30
+  
+- platform: command_line
+  name: Living Room Motion
+  command: !secret liv_rm_motion_alm
+  scan_interval: 1
+  
+- platform: command_line
+  name: Den Motion
+  command: !secret den_motion_alm
+  scan_interval: 1
+  
+- platform: command_line
+  name: Garage Motion
+  command: !secret garage_motion_alm
+  scan_interval: 1
+  
+- platform: command_line
+  name: Living Room Sound
+  command: !secret liv_rm_sound_alm
+  scan_interval: 1
+  
+- platform: command_line
+  name: Den Sound
+  command: !secret den_sound_alm
+  scan_interval: 1
+  
+- platform: command_line
+  name: Garage Sound
+  command: !secret garage_sound_alm
+  scan_interval: 1
+  
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - upload
+    - download
+  hour:
+    - 7
+    - 15
+    - 23
+  minute: 0
+
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /
+    - type: memory_use_percent
+    - type: last_boot
+    - type: ipv4_address
+      arg: wlp3s0
+    - type: processor_use
+
+- platform: mqtt
+  state_topic: "home-assistant/garage/1/temp"
+  name: "Garage Temp"
+  unit_of_measurement: "°F"
+  qos: 1
+  
+- platform: template
+  sensors:
+    atmospheric_press:
+      friendly_name: 'Atmospheric Pressure'
+      value_template: '{{ ((states.sensor.weather_pressure.state | float) / 33.864) | round(1) }} inHg'
+    garage_status:
+      friendly_name: 'Garage Status'
+      value_template: '{{ states.cover.garage.state }}'
+    garage_status_abbr:
+      friendly_name: 'Garage'
+      value_template: '{% if is_state("sensor.garage_status", "closed") %} CL {% else %} OP {% endif %}'
+    vacation_monitor:
+      friendly_name: 'Vacation Monitor'
+      value_template: >-
+                       {%- if is_state("automation.bottle_lamp_off_vacation", "off")
+                           and is_state("automation.bottle_lamp_vacation", "off")
+                           and is_state("automation.den_light_off_vacation", "off")
+                           and is_state("automation.den_light_vacation", "off")
+                           and is_state("automation.dining_light_off_vacation", "off")
+                           and is_state("automation.dining_light_vacation", "off") -%}
+                       OFF
+                       {%- elif is_state("automation.bottle_lamp_off_vacation", "on")
+                           and is_state("automation.bottle_lamp_vacation", "on")
+                           and is_state("automation.den_light_off_vacation", "on")
+                           and is_state("automation.den_light_vacation", "on")
+                           and is_state("automation.dining_light_off_vacation", "on")
+                           and is_state("automation.dining_light_vacation", "on") -%}
+                       ON
+                       {%- else -%}
+                       MIX
+                       {%- endif -%}
+    living_rm_motion_out:
+      friendly_name: 'Living Rm Motion'
+      value_template: >-
+                       {% if is_state("sensor.living_room_motion", "0") %}
+                       Disabled
+                       {% elif is_state("sensor.living_room_motion", "1") %}
+                       No Motion Detected
+                       {% elif is_state("sensor.living_room_motion", "2") %}
+                       Motion Alarm!
+                       {% endif %}
+    den_motion_out:
+      friendly_name: 'Den Motion'
+      value_template: >-
+                       {% if is_state("sensor.den_motion", "0") %}
+                       Disabled
+                       {% elif is_state("sensor.den_motion", "1") %}
+                       No Motion Detected
+                       {% elif is_state("sensor.den_motion", "2") %}
+                       Motion Alarm!
+                       {% endif %}
+    garage_motion_out:
+      friendly_name: 'Garage Motion'
+      value_template: >-
+                       {% if is_state("sensor.garage_motion", "0") %}
+                       Disabled
+                       {% elif is_state("sensor.garage_motion", "1") %}
+                       No Motion Detected
+                       {% elif is_state("sensor.garage_motion", "2") %}
+                       Motion Alarm!
+                       {% endif %}
+    living_rm_sound_out:
+      friendly_name: 'Living Rm Sound'
+      value_template: >-
+                       {% if is_state("sensor.living_room_sound", "0") %}
+                       Disabled
+                       {% elif is_state("sensor.living_room_sound", "1") %}
+                       No Sound Detected
+                       {% elif is_state("sensor.living_room_sound", "2") %}
+                       Sound Alarm!
+                       {% endif %}
+    den_sound_out:
+      friendly_name: 'Den Sound'
+      value_template: >-
+                       {% if is_state("sensor.den_sound", "0") %}
+                       Disabled
+                       {% elif is_state("sensor.den_sound", "1") %}
+                       No Sound Detected
+                       {% elif is_state("sensor.den_sound", "2") %}
+                       Sound Alarm!
+                       {% endif %}
+    garage_sound_out:
+      friendly_name: 'Garage Sound'
+      value_template: >-
+                       {% if is_state("sensor.garage_sound", "0") %}
+                       Disabled
+                       {% elif is_state("sensor.garage_sound", "1") %}
+                       No Sound Detected
+                       {% elif is_state("sensor.garage_sound", "2") %}
+                       Sound Alarm!
+                       {% endif %}    

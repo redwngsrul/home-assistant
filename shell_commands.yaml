@@ -1,0 +1,49 @@
+#update_hass: /home/redwngsrul/hass_update.sh
+reboot_pi: sudo reboot
+reboot_remote_pi: ssh 192.168.1.94 sudo reboot
+
+turn_off_desktop: net rpc shutdown -f -t 0 -C "HASS is shutting you down!" -I 192.168.1.89 -U !secret desktop_usr_pw
+
+ps4_x_button: ps4-waker remote enter
+ps4_o_button: ps4-waker remote back
+ps4_start_nhl_17: ps4-waker start CUSA04326
+ps4_start_ps_vue: ps4-waker start CUSA00960
+ps4_start_golf_club_2: ps4-waker start CUSA06222
+# ps4_currentapp_update: "cp /home/redwngsrul/.homeassistant/www/ps4cam/1{{ states.sensor.current_ps4_id.state }}.jpg /home/redwngsrul/.homeassistant/www/ps4cam/currentgame.jpg"
+
+receiver_power_toggle: ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER POWER_TOGGLE
+receiver_volume_up: ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER VOL_UP
+receiver_volume_down: ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER VOL_DOWN
+receiver_input_bd: ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER INPUT_BD
+receiver_input_dvd: ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER INPUT_DVD
+receiver_input_tv: ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER INPUT_TV
+receiver_input_dvr: ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER INPUT_DVR
+receiver_input_cd: ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER INPUT_CD
+receiver_input_cdr: ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER INPUT_CD-R
+receiver_input_tuner: ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER INPUT_TUNER
+receiver_mute: ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER MUTE
+receiver_signal_select: ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER SIGNAL_SELECT
+
+projector_power_on: ssh 192.168.1.94 irsend SEND_ONCE OPTOMA POWER_ON
+projector_power_off: ssh 192.168.1.94 irsend SEND_ONCE OPTOMA POWER_OFF
+projector_hdmi1: ssh 192.168.1.94 irsend SEND_ONCE OPTOMA HDMI1
+projector_hdmi2: ssh 192.168.1.94 irsend SEND_ONCE OPTOMA HDMI2
+projector_vga1: ssh 192.168.1.94 irsend SEND_ONCE OPTOMA VGA1
+projector_vga2: ssh 192.168.1.94 irsend SEND_ONCE OPTOMA VGA2
+projector_video: ssh 192.168.1.94 irsend SEND_ONCE OPTOMA VIDEO
+
+google_tv_power_on: ssh 192.168.1.95 irsend SEND_ONCE --count=2 GOOGLE_TV POWER_ON
+google_tv_power_off: ssh 192.168.1.95 irsend SEND_ONCE --count=2 GOOGLE_TV POWER_OFF
+
+soundbar_power_toggle: ssh 192.168.1.95 irsend SEND_ONCE SOUNDBAR POWER_TOGGLE
+soundbar_volume_up: ssh 192.168.1.95 irsend SEND_ONCE SOUNDBAR VOL_UP
+soundbar_volume_down: ssh 192.168.1.95 irsend SEND_ONCE SOUNDBAR VOL_DOWN
+soundbar_mute: ssh 192.168.1.95 irsend SEND_ONCE SOUNDBAR MUTE
+soundbar_next_input: ssh 192.168.1.95 irsend SEND_ONCE SOUNDBAR NEXT_INPUT
+
+picture_on_main: raspistill -o ~/picture.jpg
+picture_on_remote: ssh 192.168.1.94 raspistill -o ~/picture.jpg
+copy_pic_from_remote: scp redwngsrul@192.168.1.94:/home/redwngsrul/picture.jpg ~/pictures
+video_on_remote: ssh 192.168.1.94 raspivid -n -ISO 600 -t 60000 -o ~/video.h264
+convert_remote_video: ssh 192.168.1.94 MP4Box -add video.h264 video.mp4
+copy_video_from_remote: scp redwngsrul@192.168.1.94:/home/redwngsrul/video.mp4 ~/videos

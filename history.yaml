@@ -1,10 +1,12 @@
 exclude:
   domains:
     - automation
-    - media_player
-    - input_select
-    - group
     - camera
+    - group
+    - history_graph
+    - input_number
+    - input_select
+    - media_player
     - script
   entities:
     - switch.den_camera_recording
@@ -25,6 +27,7 @@ exclude:
     - sensor.living_rm_sound_out
     - sensor.garage_status_abbr
     - sensor.garage_status
+    - sensor.garage_temperature
     - sensor.current_ps4_id
     - sensor.time
     - sensor.date
@@ -32,8 +35,14 @@ exclude:
     - sensor.vacation_monitor
     - sensor.yr_symbol
     - sensor.moon
+    - sensor.weather_symbol
+    - sensor.weather_cloudiness
+    - sensor.weather_precipitation
+    - sensor.weather_wind_diretion
+    - sensor.weather_wind_speed
+    - sensor.atmospheric_press
     - sensor.last_boot
     - sensor.ipv4_address_wlp3s0
-    - input_slider.off_tmr_slider
+    - sensor.ssl_cert_expiry
     - cover.den_volume_control
     - cover.living_room_volume

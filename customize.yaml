@@ -71,6 +71,10 @@ sensor.weather_humidity:
   icon: mdi:water-percent
 sensor.weather_cloudiness:
   icon: mdi:weather-cloudy
+sensor.garage_temperature:
+  icon: mdi:temperature-fahrenheit
+sensor.atmospheric_press:
+  icon: mdi:arrow-collapse-all
 
 binary_sensor.garage_control_online:
   icon: mdi:link-variant

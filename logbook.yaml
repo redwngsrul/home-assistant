@@ -1,6 +1,7 @@
 exclude:
   domains:
     - input_select
+    - history_graph
   entities:
     - sensor.time
     - sensor.date
@@ -15,3 +16,6 @@ exclude:
     - sensor.garage_sound
     - sensor.living_room_sound
     - sensor.garage_status_abbr
+    - sensor.garage_temp
+    - sensor.garage_temperature
+    - sensor.atmospheric_press

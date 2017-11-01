@@ -185,7 +185,7 @@ garage_door:
     - cover.garage
     - sensor.garage_status
     - binary_sensor.garage_control_online
-    - sensor.garage_temp
+    - sensor.garage_temperature
     - camera.garage_video
 
 chromecasts_off:
@@ -209,7 +209,7 @@ Weather:
   name: Weather
   entities:
     - sensor.weather_humidity
-    - sensor.weather_pressure
+    - sensor.atmospheric_press
 #    - sensor.weather_precipitation
     - sensor.weather_cloudiness
     - camera.living_room_video

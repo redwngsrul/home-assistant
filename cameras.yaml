@@ -1,4 +1,4 @@
-﻿#- platform: local_file
+#- platform: local_file
 #  name: Main Pi Image
 #  file_path: /home/redwngsrul/picture.jpg
   
@@ -30,6 +30,11 @@
 - platform: mjpeg
   mjpeg_url: http://192.168.1.94:8080/?action=stream
   name: Den 2 Cam
+  
+- platform: generic
+  name: Alex's Map Card
+  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.pixelxl_pixelxl.attributes.latitude }},{{ states.device_tracker.pixelxl_pixelxl.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.device_tracker.pixelxl_pixelxl.attributes.latitude }},{{ states.device_tracker.pixelxl_pixelxl.attributes.longitude }}
+  limit_refetch_to_url_change: true
   
 # - platform: mjpeg
   # mjpeg_url: http://192.168.1.95:8080

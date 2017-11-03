@@ -205,6 +205,7 @@ RaspPiSysMon:
     - sensor.ipv4_address_wlp3s0
     - sensor.last_boot
     - sensor.ssl_cert_expiry
+    - camera.alexs_map_card
     
 Weather:
   name: Weather

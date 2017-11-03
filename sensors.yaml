@@ -84,12 +84,23 @@
   name: "Garage Temp"
   unit_of_measurement: "°F"
   qos: 1
+
+- platform: mqtt
+  state_topic: "owntracks/pixelxl/pixelXL"
+  name: "Phone Battery"
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.batt }}'
   
 - platform: template
   sensors:
     atmospheric_press:
       friendly_name: 'Atmospheric Pressure'
-      value_template: '{{ ((states.sensor.weather_pressure.state | float) / 33.864) | round(1) }} inHg'
+      value_template: '{{ ((states.sensor.weather_pressure.state | float) / 33.864) | round(1) }}'
+      unit_of_measurement: 'inHg'
+    garage_temperature:
+      friendly_name: 'Garage Temperature'
+      value_template: '{{ (states.sensor.garage_temp.state | float) | round(1) }}'
+      unit_of_measurement: '°F'
     garage_status:
       friendly_name: 'Garage Status'
       value_template: '{{ states.cover.garage.state }}'

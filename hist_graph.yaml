@@ -5,3 +5,10 @@ gr1:
     - sensor.garage_temp
   hours_to_show: 24
   refresh: 30
+
+gr2:
+  name: HASS PC Monitor
+  entities:
+    - sensor.cpu_used
+    - sensor.ram_used
+    - sensor.disk_used_

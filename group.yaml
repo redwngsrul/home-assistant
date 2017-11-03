@@ -60,6 +60,7 @@ RaspPi:
     - group.speedtest
     - group.datetime
     - history_graph.temperature_graph
+    - history_graph.hass_pc_monitor
     # - script.picture_on_remote
     # - camera.remote_pi_image
 
@@ -198,9 +199,9 @@ chromecasts_off:
 RaspPiSysMon:
   name: Home Assistant PC Monitor
   entities:
-    - sensor.cpu_use
-    - sensor.disk_use_
-    - sensor.ram_use
+    - sensor.cpu_used
+    - sensor.disk_used_
+    - sensor.ram_used
     - sensor.ipv4_address_wlp3s0
     - sensor.last_boot
     - sensor.ssl_cert_expiry

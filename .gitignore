@@ -1,5 +1,6 @@
 *
 !*.yaml
+!README.md
 !.gitignore
 !automation
 secrets.yaml

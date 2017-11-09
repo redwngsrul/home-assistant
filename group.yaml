@@ -144,11 +144,12 @@ Thermostat:
   control: hidden
   view: no
   entities:
-    - sensor.nest_temperature
-    - sensor.nest_setpoint
-    - sensor.nest_mode
-    - sensor.nest_fan_mode
-    - sensor.nest_away
+    - sensor.living_room_thermostat_temperature
+    - sensor.living_room_thermostat_target
+    - sensor.living_room_thermostat_humidity
+    - sensor.living_room_thermostat_hvac_state
+    - sensor.living_room_thermostat_operation_mode
+    - binary_sensor.living_room_thermostat_fan
    
 Living_Room:
   name: Living Room

@@ -118,25 +118,6 @@
     nas_uptime:
       friendly_name: 'NAS Run Time'
       value_template: '{{ states.sensor.nasf34bde_status.attributes.Uptime }}'
-
-    nest_temperature:
-      friendly_name: 'Nest Temp'
-      value_template: '{{ states.climate.living_room.attributes.current_temperature }}'
-      unit_of_measurement: '°F'
-    nest_setpoint:
-      friendly_name: 'Nest Setpoint Temp'
-      value_template: '{{ states.climate.living_room.attributes.temperature }}'
-      unit_of_measurement: '°F'
-    nest_mode:
-      friendly_name: 'Nest Operation Mode'
-      value_template: '{{ states.climate.living_room.attributes.operation_mode }}'
-    nest_fan_mode:
-      friendly_name: 'Nest Fan Mode'
-      value_template: '{{ states.climate.living_room.attributes.fan_mode }}'
-    nest_away:
-      friendly_name: 'Nest Away Mode'
-      value_template: '{{ states.climate.living_room.attributes.away_mode }}'
-
     vacation_monitor:
       friendly_name: 'Vacation Monitor'
       value_template: >-

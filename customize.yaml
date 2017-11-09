@@ -75,6 +75,14 @@ sensor.garage_temperature:
   icon: mdi:temperature-fahrenheit
 sensor.atmospheric_press:
   icon: mdi:arrow-collapse-all
+sensor.living_room_thermostat_temperature:
+  icon: mdi:nest-thermostat
+sensor.living_room_thermostat_humidity:
+  icon: mdi:water-percent
+sensor.living_room_thermostat_operation_mode:
+  icon: mdi:air-conditioner
+sensor.living_room_thermostat_hvac_state:
+  icon: mdi:adjust
 
 binary_sensor.garage_control_online:
   icon: mdi:link-variant
@@ -84,6 +92,8 @@ binary_sensor.living_room_camera_recording:
   icon: mdi:video
 binary_sensor.garage_camera_recording:
   icon: mdi:video
+binary_sensor.living_room_thermostat_fan:
+  icon: mdi:fan
 
 input_number.off_tmr_slider:
   icon: mdi:timelapse

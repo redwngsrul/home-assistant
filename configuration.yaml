@@ -60,6 +60,9 @@ map:
 media_player:
   - platform: cast
 mqtt: !include mqtt.yaml
+nest:
+  client_id: !secret nest_id
+  client_secret: !secret nest_secret
 notify: !include notifiers.yaml
 panel_iframe:
   configurator:

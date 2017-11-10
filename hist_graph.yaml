@@ -12,3 +12,9 @@ gr2:
     - sensor.cpu_used
     - sensor.ram_used
     - sensor.disk_used_
+
+gr3:
+  name: Thermostat
+  entities:
+    - sensor.living_room_thermostat_temperature
+    - sensor.living_room_thermostat_target

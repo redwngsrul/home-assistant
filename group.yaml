@@ -59,8 +59,6 @@ RaspPi:
     - group.datetime
     - history_graph.temperature_graph
     - group.nassysmon
-    # - script.picture_on_remote
-    # - camera.remote_pi_image
 
 ######################################
 
@@ -137,7 +135,6 @@ Den_Switches:
     - script.play_turn_off
     - script.music_in_den
     - cover.den_volume_control
-    # - sensor.den_heat_index
 
 Thermostat:
   name: Home Thermostat
@@ -147,9 +144,10 @@ Thermostat:
     - sensor.living_room_thermostat_temperature
     - sensor.living_room_thermostat_target
     - sensor.living_room_thermostat_humidity
-    - sensor.living_room_thermostat_hvac_state
     - sensor.living_room_thermostat_operation_mode
+    - sensor.living_room_thermostat_hvac_state
     - binary_sensor.living_room_thermostat_fan
+    - history_graph.thermostat
    
 Living_Room:
   name: Living Room
@@ -161,8 +159,6 @@ Living_Room:
     - script.living_room_tv_on
     - script.living_room_tv_off
     - cover.living_room_volume
-#    - sensor.thermostat_temp
-#    - sensor.thermostat_humidity
    
 Cam_Sensors:
   name: Camera Sensors
@@ -233,5 +229,4 @@ Weather:
   entities:
     - sensor.weather_humidity
     - sensor.atmospheric_press
-#    - sensor.weather_precipitation
     - sensor.weather_cloudiness

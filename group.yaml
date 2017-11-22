@@ -6,16 +6,17 @@ default_view:
   icon: mdi:home-outline
   entities:
     - group.video_cameras
+    - group.thermostat
     - group.garage_door
     - sun.sun
     - sensor.moon
     - sensor.weather_temperature
+    - sensor.living_room_thermostat_temperature
     - sensor.weather_symbol
     - sensor.garage_status_abbr
     - device_tracker.pixelxl_pixelxl
     - group.chromecasts_off
     - group.weather
-    - group.thermostat
     
 ######################################
 

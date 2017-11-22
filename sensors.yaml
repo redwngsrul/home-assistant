@@ -80,7 +80,7 @@
     - type: processor_use
 
 - platform: qnap
-  host: 192.168.1.100
+  host: 192.168.1.111
   username: !secret qnap_user
   password: !secret qnap_pw
   monitored_conditions:

@@ -154,3 +154,9 @@ vacation:
     - service: automation.toggle
       data:
         entity_id: automation.dining_light_off_vacation
+    - service: automation.toggle
+      data:
+        entity_id: automation.neon_lights_vacation
+    - service: automation.toggle
+      data:
+        entity_id: automation.neon_lights_off_vacation

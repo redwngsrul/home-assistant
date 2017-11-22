@@ -4,14 +4,14 @@
   trigger:
     platform: time
     at: '18:30:00'
-  condition:
-    condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+#  condition:
+#    condition: time
+#    weekday:
+#      - mon
+#      - tue
+#      - wed
+#      - thu
+#      - fri
   action:
     - service: switch.turn_on
       entity_id: switch.dining_room_light
@@ -22,14 +22,14 @@
   trigger:
     platform: time
     at: '22:00:00'
-  condition:
-    condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+#  condition:
+#    condition: time
+#    weekday:
+#      - mon
+#      - tue
+#      - wed
+#      - thu
+#      - fri
   action:
     - service: switch.turn_off
       entity_id: switch.dining_room_light
@@ -40,14 +40,14 @@
   trigger:
     platform: time
     at: '20:00:00'
-  condition:
-    condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+#  condition:
+#    condition: time
+#    weekday:
+#      - mon
+#      - tue
+#      - wed
+#      - thu
+#      - fri
   action:
     - service: switch.turn_on
       entity_id: switch.bottle_lamp
@@ -58,14 +58,14 @@
   trigger:
     platform: time
     at: '22:30:00'
-  condition:
-    condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+#  condition:
+#    condition: time
+#    weekday:
+#      - mon
+#      - tue
+#      - wed
+#      - thu
+#      - fri
   action:
     - service: switch.turn_off
       entity_id: switch.bottle_lamp
@@ -76,14 +76,14 @@
   trigger:
     platform: time
     at: '19:30:00'
-  condition:
-    condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+#  condition:
+#    condition: time
+#    weekday:
+#      - mon
+#      - tue
+#      - wed
+#      - thu
+#      - fri
   action:
     - service: switch.turn_on
       entity_id: switch.den_light
@@ -94,14 +94,50 @@
   trigger:
     platform: time
     at: '22:30:00'
-  condition:
-    condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+#  condition:
+#    condition: time
+#    weekday:
+#      - mon
+#      - tue
+#      - wed
+#      - thu
+#      - fri
   action:
     - service: switch.turn_off
       entity_id: switch.den_light
+
+#turn on laundry light @ 545am weekdays
+- alias: 'neon lights vacation'
+  initial_state: false
+  trigger:
+    platform: time
+    at: '17:30:00'
+#  condition:
+#    condition: time
+#    weekday:
+#      - mon
+#      - tue
+#      - wed
+#      - thu
+#      - fri
+  action:
+    - service: switch.turn_on
+      entity_id: switch.neons
+
+#turn off laundry light @ 610am weekdays    
+- alias: 'neon lights OFF vacation'
+  initial_state: false
+  trigger:
+    platform: time
+    at: '20:30:00'
+#  condition:
+#    condition: time
+#    weekday:
+#      - mon
+#      - tue
+#      - wed
+#      - thu
+#      - fri
+  action:
+    - service: switch.turn_off
+      entity_id: switch.neons

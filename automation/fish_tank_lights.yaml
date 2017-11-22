@@ -1,17 +1,17 @@
 #turn on fish tank lights at dusk
-- alias: 'Fish Tank Lights @ Dusk'
+- alias: 'Fish Tank Lights'
   initial_state: true
   trigger:
-    platform: sun
-    event: sunset
-    offset: '-00:45:00'
+    - platform: state
+      entity_id: device_tracker.pixelxl_pixelxl
+      to: 'home'
+      for:
+        minutes: 5
   action:
     - service: switch.turn_on
       entity_id: switch.fish_tank_white_light
-    - service: switch.turn_on
-      entity_id: switch.fish_tank_blue_light
-#turn on blue lights only at bedtime
-- alias: 'Blue Lights at Bedtime'
+#turn off tank lights at bedtime
+- alias: 'No Lights at Bedtime'
   initial_state: true
   trigger:
     platform: time
@@ -19,20 +19,12 @@
   action:
     - service: switch.turn_off
       entity_id: switch.fish_tank_white_light
-    - delay: '00:01:00'
-    - service: switch.turn_on
-      entity_id: switch.fish_tank_blue_light
-#turn off tank lights in morning
-- alias: 'Tank Lights off in Morning'
+#turn on tank lights in morning
+- alias: 'Tank Lights on in Morning'
   initial_state: true
   trigger:
-    - platform: state
-      entity_id: device_tracker.pixelxl_pixelxl
-      from: "home"
     - platform: time
-      at: '07:59:45'
+      at: '05:30:00'
   action:
-    - service: switch.turn_off
-      entity_id: switch.fish_tank_white_light
-    - service: switch.turn_off
+    - service: switch.turn_on
       entity_id: switch.fish_tank_blue_light

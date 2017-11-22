@@ -15,6 +15,8 @@ gr2:
 
 gr3:
   name: Thermostat
+  hours_to_show: 24
+  refresh: 30
   entities:
     - sensor.living_room_thermostat_temperature
     - sensor.living_room_thermostat_target

@@ -37,6 +37,7 @@ emulated_hue:
 #    - switch
     - script
 frontend: !include frontend.yaml
+  #javascript_version: latest
 google_assistant:
   project_id: homeassistant-88993
   client_id: !secret goog_client_id

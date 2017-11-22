@@ -29,21 +29,21 @@ switch.garage_camera_recording:
   icon: mdi:camera-enhance
   
 script.chromecast_off_tmr:
-  emulated_hue: false
+  emulated_hue_hidden: true
 script.picture_on_main:
-  emulated_hue: false
+  emulated_hue_hidden: true
   icon: mdi:camera
 script.picture_on_remote:
-  emulated_hue: false
+  emulated_hue_hidden: true
   icon: mdi:camera-enhance
 script.open_garage:
-  emulated_hue: false
+  emulated_hue_hidden: true
 script.update_hass:
-  emulated_hue: false
+  emulated_hue_hidden: true
 script.reboot_pi:
-  emulated_hue: false
+  emulated_hue_hidden: true
 script.vacation:
-  emulated_hue: false
+  emulated_hue_hidden: true
 
 sensor.speedtest_download:
   icon: mdi:download

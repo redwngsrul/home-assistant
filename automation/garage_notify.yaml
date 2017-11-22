@@ -37,7 +37,7 @@
       data:
         title: 'GARAGE OPEN ALERT!!!'
         message: 'The garage was detected open.'
-        
+
 #Garage Offline Notifier
 - alias: "Garage Offline Notify"
   trigger:

@@ -1,3 +1,26 @@
-#set nest mode home
-#- alias: "Nest Home"
-#  trigger: 
+#set nest away
+- alias: "Nest AWAY Mode"
+  initial_state: true
+  trigger: 
+    platform: state
+    entity_id: device_tracker.pixelxl_pixelxl
+    from: "home"
+#  condition:
+#    platform: state
+#    entity_id: 
+  action:
+    - service: nest.set_mode
+      data:
+        home_mode: away
+
+#set nest home
+- alias: "Nest HOME Mode"
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: device_tracker.pixelxl_pixelxl
+    to: "home"
+  action:
+    - service: nest.set_mode
+      data:
+        home_mode: home

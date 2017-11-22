@@ -33,3 +33,7 @@
 #  sensor_class: None
   payload_on: 1
   payload_off: 0
+
+- platform: workday
+  country: US
+  province: OH

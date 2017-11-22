@@ -80,20 +80,16 @@ Settings:
   view: yes
   icon: mdi:settings
   entities:
-    - automation.bottle_lamp_vacation
-    - automation.bottle_lamp_on_weekdays
-    - automation.bottle_lamp_off_vacation
-    - automation.dining_light_on_weekdays
-    - automation.dining_light_vacation
-    - automation.dining_light_off_vacation
+    - automation.bottle_lamp_on_workdays
+    - automation.dining_light_on_workdays
     - automation.garage_offline_notify
     - automation.garage_open_notify
-    - automation.laundry_light_on_weekdays
+    - automation.laundry_light_on_workdays
     - automation.den_lamp_on
     - automation.den_lamp_off
-    - automation.den_light_vacation
-    - automation.den_light_off_vacation
-    - automation.auto_garage_opener
+    - automation.fish_tank_lights_on
+    - automation.no_fish_lights_at_bedtime
+    - automation.tank_lights_on_in_morning
     - script.motion_sensing
     - script.chromecast_off_tmr
     - script.music_in_den

@@ -42,14 +42,16 @@ google_assistant:
   project_id: homeassistant-88993
   client_id: !secret goog_client_id
   access_token: !secret goog_access_tok
+  agent_user_id: redwngsrul
+  api_key: !secret goog_api_key
   exposed_domains:
     - switch
     - cover
-    - media_player
+#    - media_player
 group: !include group.yaml
 history: !include history.yaml
 history_graph: !include hist_graph.yaml
-#input_boolean: !include input_boolean.yaml
+input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 input_number: !include input_slider.yaml
 logbook: !include logbook.yaml

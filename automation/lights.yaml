@@ -2,8 +2,8 @@
 - alias: 'Dining Light ON Workdays'
   initial_state: true
   trigger:
-    platform: time
-    at: '05:00:00'
+    - platform: time
+      at: '05:00:00'
   condition:
     condition: or
     conditions: 
@@ -11,7 +11,7 @@
         entity_id: binary_sensor.workday_sensor
         state: 'on'
       - condition: state
-        entity_id: script.vacation
+        entity_id: input_boolean.vacation
         state: 'on'
   action:
     - service: switch.turn_on
@@ -38,8 +38,11 @@
 - alias: 'Bottle Lamp ON Workdays'
   initial_state: true
   trigger:
-    platform: time
-    at: '05:00:00'
+    - platform: time
+      at: '05:00:00'
+    - platform: sun
+      event: sunset
+      offset: '-00:30:00'
   condition:
     condition: or
     conditions: 
@@ -47,13 +50,13 @@
         entity_id: binary_sensor.workday_sensor
         state: 'on'
       - condition: state
-        entity_id: script.vacation
+        entity_id: input_boolean.vacation
         state: 'on'
   action:
     - service: switch.turn_on
       entity_id: switch.bottle_lamp
 
-#turn off dining light @ 6am weekdays    
+#turn off bottle light @ 6am weekdays    
 - alias: 'Bottle Lamp OFF'
   initial_state: true
   trigger:
@@ -62,6 +65,8 @@
       from: "home"
     - platform: time
       at: '07:59:45'
+    - platform: time
+      at: '22:00:00'
   condition:
     condition: state
     entity_id: switch.bottle_lamp
@@ -83,7 +88,7 @@
         entity_id: binary_sensor.workday_sensor
         state: 'on'
       - condition: state
-        entity_id: script.vacation
+        entity_id: input_boolean.vacation
         state: 'on'
   action:
     - service: switch.turn_on
@@ -105,3 +110,54 @@
   action:
     - service: switch.turn_off
       entity_id: switch.laundry_light
+
+# den lamp on 
+- alias: 'Den Lamp ON Vacation'
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '-00:30:00'
+  condition: 
+    condition: state
+    entity_id: input_boolean.vacation
+    state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.den_light
+
+#turn off den lamp
+- alias: 'Den Lamp OFF Vaca'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: device_tracker.pixelxl_pixelxl
+      from: "home"
+    - platform: time
+      at: '20:00:00'
+  condition:
+    condition: state
+    entity_id: switch.den_light
+    state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.den_light
+    - service: switch.turn_on
+      entity_id: switch.neons
+
+#turn off neons
+- alias: 'Neons OFF'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: device_tracker.pixelxl_pixelxl
+      from: "home"
+    - platform: time
+      at: '22:00:00'
+  condition:
+    condition: state
+    entity_id: switch.neons
+    state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.neons

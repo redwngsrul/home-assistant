@@ -1,0 +1,4 @@
+vacation:
+  name: Vacation Mode
+  initial: off
+  icon: mdi:car

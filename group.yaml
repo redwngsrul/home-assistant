@@ -9,9 +9,10 @@ default_view:
     - group.thermostat
     - group.garage_door
     - sun.sun
+    - binary_sensor.vacation_monitor
     - sensor.moon
     - sensor.weather_temperature
-    - sensor.living_room_thermostat_temperature
+#    - sensor.living_room_thermostat_temperature
     - sensor.weather_symbol
     - sensor.garage_status_abbr
     - device_tracker.pixelxl_pixelxl
@@ -87,9 +88,15 @@ Settings:
     - automation.laundry_light_on_workdays
     - automation.den_lamp_on
     - automation.den_lamp_off
+    - automation.den_lamp_off_vaca
+    - automation.den_lamp_on_vacation
+    - automation.neons_off
+    - automation.nest_away_mode
+    - automation.nest_home_mode
     - automation.fish_tank_lights_on
     - automation.no_fish_lights_at_bedtime
     - automation.tank_lights_on_in_morning
+    - input_boolean.vacation
     - script.motion_sensing
     - script.chromecast_off_tmr
     - script.music_in_den
@@ -101,7 +108,6 @@ Settings:
     - script.reboot_pi
     - script.living_room_tv_on
     - script.living_room_tv_off
-    - script.vacation
     - script.sleep_tmr
     
 #############################################
@@ -144,7 +150,6 @@ Thermostat:
     - sensor.living_room_thermostat_operation_mode
     - sensor.living_room_thermostat_hvac_state
     - binary_sensor.living_room_thermostat_fan
-    - history_graph.thermostat
    
 Living_Room:
   name: Living Room

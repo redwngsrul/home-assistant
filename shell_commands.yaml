@@ -4,6 +4,8 @@ reboot_remote_pi: ssh 192.168.1.94 sudo reboot
 
 turn_off_desktop: net rpc shutdown -f -t 0 -C "HASS is shutting you down!" -I 192.168.1.89 -U !secret desktop_usr_pw
 
+cert_renew: ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+
 ps4_x_button: ps4-waker remote enter
 ps4_o_button: ps4-waker remote back
 ps4_start_nhl_17: ps4-waker start CUSA04326

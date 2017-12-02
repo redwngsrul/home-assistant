@@ -133,30 +133,30 @@ motion_sensing:
       data:
         entity_id: automation.den_lamp_off
         
-vacation:
-  alias: "Vacation"
-  sequence:
-    - service: automation.toggle
-      data:
-        entity_id: automation.bottle_lamp_vacation
-    - service: automation.toggle
-      data:
-        entity_id: automation.bottle_lamp_off_vacation
-    - service: automation.toggle
-      data:
-        entity_id: automation.den_light_vacation
-    - service: automation.toggle
-      data:
-        entity_id: automation.den_light_off_vacation
-    - service: automation.toggle
-      data:
-        entity_id: automation.dining_light_vacation
-    - service: automation.toggle
-      data:
-        entity_id: automation.dining_light_off_vacation
-    - service: automation.toggle
-      data:
-        entity_id: automation.neon_lights_vacation
-    - service: automation.toggle
-      data:
-        entity_id: automation.neon_lights_off_vacation
+#vacation:
+#  alias: "Vacation"
+#  sequence:
+#    - service: automation.toggle
+#      data:
+#        entity_id: automation.bottle_lamp_vacation
+#    - service: automation.toggle
+#      data:
+#        entity_id: automation.bottle_lamp_off_vacation
+#    - service: automation.toggle
+#      data:
+#        entity_id: automation.den_light_vacation
+#    - service: automation.toggle
+#      data:
+#        entity_id: automation.den_light_off_vacation
+#    - service: automation.toggle
+#      data:
+#        entity_id: automation.dining_light_vacation
+#    - service: automation.toggle
+#      data:
+#        entity_id: automation.dining_light_off_vacation
+#    - service: automation.toggle
+#      data:
+#        entity_id: automation.neon_lights_vacation
+#    - service: automation.toggle
+#      data:
+#        entity_id: automation.neon_lights_off_vacation

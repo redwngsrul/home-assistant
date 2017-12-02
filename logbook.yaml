@@ -3,12 +3,13 @@ exclude:
     - input_select
     - history_graph
   entities:
+    - binary_sensor.vacation_monitor
+
     - sensor.time
     - sensor.date
     - sensor.speedtest
     - sensor.last_boot
     - sensor.ipv4_address_wlp3s0
-    - script.motion_sensing
     - sensor.den_motion
     - sensor.garage_motion
     - sensor.living_room_motion
@@ -19,3 +20,5 @@ exclude:
     - sensor.garage_temp
     - sensor.garage_temperature
     - sensor.atmospheric_press
+
+    - script.motion_sensing

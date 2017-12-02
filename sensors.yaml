@@ -118,26 +118,6 @@
     nas_uptime:
       friendly_name: 'NAS Run Time'
       value_template: '{{ states.sensor.nasf34bde_status.attributes.Uptime }}'
-    vacation_monitor:
-      friendly_name: 'Vacation Monitor'
-      value_template: >-
-                       {%- if is_state("automation.bottle_lamp_off_vacation", "off")
-                           and is_state("automation.bottle_lamp_vacation", "off")
-                           and is_state("automation.den_light_off_vacation", "off")
-                           and is_state("automation.den_light_vacation", "off")
-                           and is_state("automation.dining_light_off_vacation", "off")
-                           and is_state("automation.dining_light_vacation", "off") -%}
-                       OFF
-                       {%- elif is_state("automation.bottle_lamp_off_vacation", "on")
-                           and is_state("automation.bottle_lamp_vacation", "on")
-                           and is_state("automation.den_light_off_vacation", "on")
-                           and is_state("automation.den_light_vacation", "on")
-                           and is_state("automation.dining_light_off_vacation", "on")
-                           and is_state("automation.dining_light_vacation", "on") -%}
-                       ON
-                       {%- else -%}
-                       MIX
-                       {%- endif -%}
     living_rm_motion_out:
       friendly_name: 'Living Rm Motion'
       value_template: >-

@@ -2,22 +2,35 @@ switch.den_subwoofer:
   icon: mdi:surround-sound
 switch.den_light:
   icon: mdi:lightbulb
+  google_assistant_type: light
 switch.bottle_lamp:
-  icon: mdi:lightbulb
+  icon: mdi:keg
+  google_assistant_type: light
 switch.dining_room_light:
-  icon: mdi:lightbulb
+  icon: mdi:food-fork-drink
+  google_assistant_type: light
 switch.playstation4:
   icon: mdi:playstation
 switch.laundry_light:
-  icon: mdi:lightbulb
+  icon: mdi:washing-machine
+  google_assistant_type: light
 switch.fireplace_light:
-  icon: mdi:lightbulb
+  icon: mdi:fire
+  google_assistant_type: light
 switch.living_room_light:
   icon: mdi:lightbulb
+  google_assistant_type: light
 switch.desktop:
   icon: mdi:windows
 switch.neons:
   icon: mdi:lightbulb
+  google_assistant_type: light
+switch.fish_tank_blue_light:
+  icon: mdi:fish
+  google_assistant_type: light
+switch.fish_tank_white_light:
+  icon: mdi:fish
+  google_assistant_type: light
 switch.living_rm_camera_recording:
   google_assistant: false
   icon: mdi:camera-enhance
@@ -98,7 +111,11 @@ binary_sensor.living_room_thermostat_fan:
 input_number.off_tmr_slider:
   icon: mdi:timelapse
 
+cover.garage:
+  google_assistant_type: cover
 cover.den_volume_control:
   icon: mdi:volume-high
+  google_assistant: false
 cover.living_room_volume:
   icon: mdi:volume-high
+  google_assistant: false

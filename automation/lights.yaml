@@ -10,9 +10,14 @@
       - condition: state
         entity_id: binary_sensor.workday_sensor
         state: 'on'
-      - condition: state
-        entity_id: input_boolean.vacation
-        state: 'on'
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_boolean.vacation
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.workday_sensor
+            state: 'on'
   action:
     - service: switch.turn_on
       entity_id: switch.dining_room_light
@@ -49,9 +54,14 @@
       - condition: state
         entity_id: binary_sensor.workday_sensor
         state: 'on'
-      - condition: state
-        entity_id: input_boolean.vacation
-        state: 'on'
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_boolean.vacation
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.workday_sensor
+            state: 'on'
   action:
     - service: switch.turn_on
       entity_id: switch.bottle_lamp
@@ -87,9 +97,14 @@
       - condition: state
         entity_id: binary_sensor.workday_sensor
         state: 'on'
-      - condition: state
-        entity_id: input_boolean.vacation
-        state: 'on'
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_boolean.vacation
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.workday_sensor
+            state: 'on'
   action:
     - service: switch.turn_on
       entity_id: switch.laundry_light
@@ -112,8 +127,8 @@
       entity_id: switch.laundry_light
 
 # den lamp on 
-- alias: 'Den Lamp ON Vacation'
-  initial_state: true
+- alias: 'Den Lamp Vaca ON'
+  initial_state: false
   trigger:
     platform: sun
     event: sunset
@@ -127,8 +142,8 @@
       entity_id: switch.den_light
 
 #turn off den lamp
-- alias: 'Den Lamp OFF Vaca'
-  initial_state: true
+- alias: 'Den Lamp Vaca OFF'
+  initial_state: false
   trigger:
     - platform: state
       entity_id: device_tracker.pixelxl_pixelxl

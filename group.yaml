@@ -16,7 +16,6 @@ default_view:
     - sensor.weather_symbol
     - sensor.garage_status_abbr
     - device_tracker.pixelxl_pixelxl
-    - group.chromecasts_off
     - group.weather
     
 ######################################
@@ -31,7 +30,6 @@ Lights:
     - switch.desktop
     - group.den_switches
     - group.living_room
-    - camera.living_room_video
     - camera.den_video
     
 ######################################
@@ -48,6 +46,10 @@ chromecasts:
     - media_player.den_cc_ultra
     - media_player.den_audio
     - media_player.all_speakers
+    - media_player.den_home
+    - media_player.bedroom_home
+    - media_player.plex_web_chrome
+    - group.chromecasts_off
     
 #######################################
 
@@ -73,6 +75,8 @@ Camera_Controls:
     - switch.living_rm_camera_recording
     - switch.garage_camera_recording
     - group.cam_sensors
+    - camera.den_video
+    - camera.den_2_cam
     
 #######################################
 
@@ -88,8 +92,8 @@ Settings:
     - automation.laundry_light_on_workdays
     - automation.den_lamp_on
     - automation.den_lamp_off
-    - automation.den_lamp_off_vaca
-    - automation.den_lamp_on_vacation
+    - automation.den_lamp_vaca_off
+    - automation.den_lamp_vaca_on
     - automation.neons_off
     - automation.nest_away_mode
     - automation.nest_home_mode
@@ -119,7 +123,6 @@ Video_Cameras:
   entities:
     - camera.den_2_cam
     - camera.den_video
-    - camera.living_room_video
     
 Den_Switches:
   name: Den
@@ -132,11 +135,12 @@ Den_Switches:
     - switch.den_subwoofer
     - switch.playstation4
     - sensor.current_ps4_app
+    - switch.game_equipment
+    - script.music_in_den
     - switch.fish_tank_blue_light
     - switch.fish_tank_white_light
-    - script.play_playstation4
-    - script.play_turn_off
-    - script.music_in_den
+#    - script.play_playstation4
+#    - script.play_turn_off
     - cover.den_volume_control
 
 Thermostat:
@@ -150,6 +154,7 @@ Thermostat:
     - sensor.living_room_thermostat_operation_mode
     - sensor.living_room_thermostat_hvac_state
     - binary_sensor.living_room_thermostat_fan
+    - camera.living_room_video
    
 Living_Room:
   name: Living Room
@@ -160,7 +165,8 @@ Living_Room:
     - switch.living_room_light
     - script.living_room_tv_on
     - script.living_room_tv_off
-    - cover.living_room_volume
+#    - cover.living_room_volume
+    - camera.living_room_video
    
 Cam_Sensors:
   name: Camera Sensors
@@ -176,6 +182,8 @@ Cam_Sensors:
     - sensor.garage_sound_out
     - sensor.den_sound_out
     - sensor.living_rm_sound_out
+    - camera.living_room_video
+    - camera.garage_video
     
 Speedtest:
   entities:
@@ -212,9 +220,9 @@ RaspPiSysMon:
     - sensor.cpu_used
     - sensor.disk_used_
     - sensor.ram_used
-    - sensor.ipv4_address_wlp3s0
+    - sensor.ipv4_address_wlan0
     - sensor.last_boot
-    - sensor.ssl_cert_expiry
+#    - sensor.ssl_cert_expiry
     - camera.alexs_map_card
 
 NASSysMon:
@@ -223,6 +231,7 @@ NASSysMon:
     - sensor.nasf34bde_status
     - sensor.nas_uptime
     - sensor.nasf34bde_volume_used_datavol1
+    - sensor.nasf34bde_volume_used_datavol2
     - sensor.nasf34bde_cpu_usage
     - sensor.nasf34bde_memory_usage
 

@@ -1,10 +1,10 @@
-- alias: 'SSL expiry notification'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.ssl_cert_expiry
-    below: 21
-  action:
-    service: notify.gmail
-    data:
-      title: "HASS SSL Cert Expiration Warning"
-      message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
+#- alias: 'SSL expiry notification'
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.ssl_cert_expiry
+#    below: 21
+#  action:
+#    service: notify.gmail
+#    data:
+#      title: "HASS SSL Cert Expiration Warning"
+#      message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'

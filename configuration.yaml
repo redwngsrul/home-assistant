@@ -34,19 +34,21 @@ emulated_hue:
     - script
   expose_by_default: true
   exposed_domains:
-#    - switch
+    - switch
     - script
 frontend: !include frontend.yaml
   #javascript_version: latest
-google_assistant:
-  project_id: homeassistant-88993
-  client_id: !secret goog_client_id
-  access_token: !secret goog_access_tok
-  agent_user_id: redwngsrul
-  api_key: !secret goog_api_key
-  exposed_domains:
-    - switch
-    - cover
+google_assistant: !include goog_asst.yaml
+  # project_id: homeassistant-88993
+  # client_id: !secret goog_client_id
+  # access_token: !secret goog_access_tok
+  # agent_user_id: redwngsrul
+  # api_key: !secret goog_api_key
+  # expose_by_default: false
+  # exposed_domains:
+    # - script
+    # - switch
+    # - cover
 #    - media_player
 group: !include group.yaml
 history: !include history.yaml
@@ -72,10 +74,6 @@ panel_iframe:
     title: 'Yaml Editor'
     icon: mdi:wrench
     url: !secret yaml_editor_url
-  configurator2:
-    title: 'Yaml Editor Home'
-    icon: mdi:wrench
-    url: !secret yaml_editor_url_home
 #recorder:
 #  purge_days: 14
 script: !include scripts.yaml

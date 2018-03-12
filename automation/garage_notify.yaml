@@ -4,6 +4,8 @@
     - platform: state
       entity_id: sensor.garage_status
       to: 'open'
+      for:
+        seconds: 5
   condition:
     condition: or
     conditions:

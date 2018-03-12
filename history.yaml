@@ -53,7 +53,7 @@ exclude:
     - sensor.atmospheric_press
     - sensor.last_boot
     - sensor.ipv4_address_wlp3s0
-    - sensor.ssl_cert_expiry
+#    - sensor.ssl_cert_expiry
     - sensor.living_room_thermostat_hvac_state
     - sensor.living_room_thermostat_operation_mode
 

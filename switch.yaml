@@ -1,11 +1,11 @@
 #DEN LAMP
 - platform: mqtt
   name: Den Light
-  state_topic: "home/sonoff/living_room/1/stat"
-  command_topic: "home/sonoff/living_room/1"
+  state_topic: "/Den_Lamp/relay/state"
+  command_topic: "/Den_Lamp/gpio/12"
   qos: 1
-  payload_on: "on"
-  payload_off: "off"
+  payload_on: "1"
+  payload_off: "0"
   retain: true
 
 #DEN SUBWOOFER
@@ -21,11 +21,11 @@
 #FRONT LIGHT  
 - platform: mqtt
   name: Bottle Lamp
-  state_topic: "home/sonoff/front_room/1/stat"
-  command_topic: "home/sonoff/front_room/1"
+  state_topic: "/Bottle_Lamp/relay/state"
+  command_topic: "/Bottle_Lamp/gpio/12"
   qos: 1
-  payload_on: "on"
-  payload_off: "off"
+  payload_on: "1"
+  payload_off: "0"
   retain: true
 
 #DINING ROOM LIGHT
@@ -64,7 +64,7 @@
     playstation4:
       command_on: 'ps4-waker'
       command_off: 'ps4-waker standby'
-      command_state: 'nc -z -w 5 192.168.1.66 9295 | nc -z -w 5 192.168.1.72 9295'
+      command_state: 'nc -z -w 5 192.168.1.66 9295'
       friendly_name: "PlayStation 4"
 
 #Family Room LIGHT
@@ -91,7 +91,7 @@
 - platform: wake_on_lan
   mac_address: !secret desktop_mac_addr
   name: Desktop
-  host: 192.168.1.89
+  host: "Master-Desktop"
   turn_off:
     service: shell_command.turn_off_desktop
   
@@ -147,3 +147,17 @@
      command_state: !secret garage_cmd_state
      value_template: '{{ value == "8" }}'
      friendly_name: Garage Cam Record Motion
+
+#Template Switch for Den Game Equipment
+- platform: template
+  switches:
+    game_equipment:
+      value_template: "{{ is_state('input_boolean.game_equipment', 'on') }}"
+      turn_on:
+        service: script.turn_on
+        data:
+          entity_id: script.play_playstation4
+      turn_off:
+        service: script.turn_on
+        data:
+          entity_id: script.play_turn_off

@@ -1,28 +1,28 @@
 - platform: mqtt
-  state_topic: "home-assistant/garage/1/state"
-  command_topic: "home-assistant/garage/1"
+  state_topic: "/Garage/Open/OPEN"
+  command_topic: "/Garage/gpio/12"
   name: "Garage"
   qos: 0
   retain: false
   optimistic: false
-  payload_open: "OPEN"
-  payload_close: "CLOSE"
-  payload_stop: "STOP"
-  state_open: "OPENED"
-  state_closed: "CLOSED"
+  payload_open: "1"
+  payload_close: "1"
+  payload_stop: "1"
+  state_open: "0"
+  state_closed: "1"
 
 - platform: command_line
   covers:
     den_volume:
-      command_open: "ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER VOL_UP"
-      command_close: "ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER VOL_DOWN"
-      command_stop: "ssh 192.168.1.94 irsend SEND_ONCE --count=2 PIONEER MUTE"
+      command_open: "ssh raspberrypi2 irsend SEND_ONCE --count=2 PIONEER VOL_UP"
+      command_close: "ssh raspberrypi2 irsend SEND_ONCE --count=2 PIONEER VOL_DOWN"
+      command_stop: "ssh raspberrypi2 irsend SEND_ONCE --count=2 PIONEER MUTE"
       friendly_name: Den Volume Control
 
 - platform: command_line
   covers:
     living_room_volume:
-      command_open: "ssh 192.168.1.95 irsend SEND_ONCE SOUNDBAR VOL_UP"
-      command_close: "ssh 192.168.1.95 irsend SEND_ONCE SOUNDBAR VOL_DOWN"
-      command_stop: "ssh 192.168.1.95 irsend SEND_ONCE SOUNDBAR MUTE"
+      command_open: "ssh raspberrypi irsend SEND_ONCE SOUNDBAR VOL_UP"
+      command_close: "ssh raspberrypi irsend SEND_ONCE SOUNDBAR VOL_DOWN"
+      command_stop: "ssh raspberrypi irsend SEND_ONCE SOUNDBAR MUTE"
       friendly_name: Living Room Volume

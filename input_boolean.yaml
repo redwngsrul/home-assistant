@@ -2,3 +2,7 @@ vacation:
   name: Vacation Mode
   initial: off
   icon: mdi:car
+
+game_equipment:
+  name: Game Equipment
+  initial: off

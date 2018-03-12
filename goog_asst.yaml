@@ -1,0 +1,87 @@
+project_id: homeassistant-88993
+client_id: !secret goog_client_id
+access_token: !secret goog_access_tok
+agent_user_id: redwngsrul
+api_key: !secret goog_api_key
+expose_by_default: false
+exposed_domains:
+  - script
+  - switch
+  - cover
+entity_config:
+  switch.den_subwoofer:
+    expose: true
+    name: Den Subwoofer
+    aliases: 
+      - woofer
+    type: switch
+  switch.den_light:
+    expose: true
+    name: Den Lamp
+    type: light
+  switch.bottle_lamp:
+    expose: true
+    name: Bottle Lamp
+    type: light
+  switch.dining_room_light:
+    expose: true
+    name: Dining Light
+    aliases: 
+      - dining lamp
+    type: light
+  switch.playstation4:
+    expose: true
+    name: Playstation 4
+    aliases: 
+      - ps4
+    type: switch
+  switch.laundry_light:
+    expose: true
+    name: Laundry
+    type: light
+  switch.fireplace_light:
+    expose: true
+    name: Fireplace
+    type: light
+  switch.living_room_light:
+    expose: true
+    name: Home Lamp
+    type: light
+  switch.desktop:
+    expose: true
+    name: Desktop
+    type: switch
+  switch.neons:
+    expose: true
+    name: Neons
+    type: light
+  switch.fish_tank_blue_light:
+    expose: true
+    name: Tank Blues
+    type: light
+  switch.fish_tank_white_light:
+    expose: true
+    name: Tank Whites
+    type: light
+  switch.game_equipment:
+    expose: true
+    name: Game Equipment
+    type: switch
+
+  script.bedroom_tv_on:
+    expose: true
+    name: Bedroom TV
+    type: switch
+  script.depart_work:
+    expose: true
+    name: Leaving for Work
+    type: switch
+  script.motion_sensing:
+    expose: true
+    name: Motion Sensing
+    type: switch
+
+  cover.garage:
+    expose: true
+    name: Garage
+    type: cover

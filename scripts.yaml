@@ -14,6 +14,7 @@ sleep_tmr:
     - service: media_player.turn_off
       data:
         entity_id: media_player.alexs_bedroom
+    - service: shell_command.bedroom_power_toggle
       
 chromecast_off_tmr:
   alias: "Run Sleep Script"
@@ -57,6 +58,9 @@ play_playstation4:
     - delay:
         seconds: 8
     - service: shell_command.receiver_input_bd
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.game_equipment
     
 play_turn_off:
   alias: "Turn Off Game Equipment"
@@ -75,6 +79,9 @@ play_turn_off:
     - service: shell_command.projector_power_off
     - service: shell_command.projector_power_off
     - service: shell_command.projector_power_off
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.game_equipment
     
 music_in_den:
   alias: "Listen to Music in the Den"
@@ -86,33 +93,41 @@ music_in_den:
     - service: switch.turn_on
       data:
         entity_id: switch.den_subwoofer
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.game_equipment
         
-living_room_tv_on:
-  alias: "Living Room TV"
-  sequence:
-    - service: shell_command.google_tv_power_on
-    - service: shell_command.soundbar_power_toggle
-    - service: shell_command.google_tv_power_on
-    - service: shell_command.google_tv_power_on
-    - service: shell_command.google_tv_power_on
+#living_room_tv_on:
+#  alias: "Living Room TV"
+#  sequence:
+#    - service: shell_command.google_tv_power_on
+#    - service: shell_command.soundbar_power_toggle
+#    - service: shell_command.google_tv_power_on
+#    - service: shell_command.google_tv_power_on
+#    - service: shell_command.google_tv_power_on
 
-living_room_tv_off:
-  alias: "Living Room Shutdown"
+#living_room_tv_off:
+#  alias: "Living Room Shutdown"
+#  sequence:
+#    - service: shell_command.google_tv_power_off
+#    - service: shell_command.soundbar_power_toggle
+#    - delay:
+#        seconds: 3    
+#    - service: shell_command.google_tv_power_off
+#    - service: shell_command.google_tv_power_off
+#    - service: shell_command.google_tv_power_off
+
+bedroom_tv_on:
+  alias: "Bedroom TV"
   sequence:
-    - service: shell_command.google_tv_power_off
-    - service: shell_command.soundbar_power_toggle
-    - delay:
-        seconds: 3    
-    - service: shell_command.google_tv_power_off
-    - service: shell_command.google_tv_power_off
-    - service: shell_command.google_tv_power_off
+    - service: shell_command.bedroom_power_toggle
     
 depart_work:
   alias: "Leaving for Work"
   sequence:
-    - service: script.turn_on
-      data:
-        entity_id: script.living_room_tv_off
+    #- service: script.turn_on
+    #  data:
+    #    entity_id: script.living_room_tv_off
     - service: switch.turn_off
       data:
         entity_id: switch.dining_room_light

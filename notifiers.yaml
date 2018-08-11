@@ -8,3 +8,5 @@
   password: !secret smtp_pw
   recipient: !secret my_email
   sender_name: Home Assistant
+
+#- name: html5

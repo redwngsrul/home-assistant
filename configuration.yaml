@@ -39,17 +39,6 @@ emulated_hue:
 frontend: !include frontend.yaml
   #javascript_version: latest
 google_assistant: !include goog_asst.yaml
-  # project_id: homeassistant-88993
-  # client_id: !secret goog_client_id
-  # access_token: !secret goog_access_tok
-  # agent_user_id: redwngsrul
-  # api_key: !secret goog_api_key
-  # expose_by_default: false
-  # exposed_domains:
-    # - script
-    # - switch
-    # - cover
-#    - media_player
 group: !include group.yaml
 history: !include history.yaml
 history_graph: !include hist_graph.yaml

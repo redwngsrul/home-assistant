@@ -14,8 +14,8 @@ switch.fireplace_light:
   icon: mdi:fire
 switch.living_room_light:
   icon: mdi:lightbulb
-switch.desktop:
-  icon: mdi:windows
+#switch.desktop:
+#  icon: mdi:windows
 switch.neons:
   icon: mdi:lava-lamp
 switch.fish_tank_blue_light:
@@ -70,7 +70,7 @@ sensor.garage_temperature:
 sensor.atmospheric_press:
   icon: mdi:arrow-collapse-all
 sensor.living_room_thermostat_temperature:
-  icon: mdi:nest-thermostat
+  icon: mdi:thermostat
 sensor.living_room_thermostat_humidity:
   icon: mdi:water-percent
 sensor.living_room_thermostat_operation_mode:
@@ -88,6 +88,8 @@ binary_sensor.garage_camera_recording:
   icon: mdi:video
 binary_sensor.living_room_thermostat_fan:
   icon: mdi:fan
+binary_sensor.desktop:
+  icon: mdi:windows
 
 input_number.off_tmr_slider:
   icon: mdi:timelapse

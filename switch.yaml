@@ -88,12 +88,12 @@
   retain: true
   
 #WOL
-- platform: wake_on_lan
-  mac_address: !secret desktop_mac_addr
-  name: Desktop
-  host: "Master-Desktop"
-  turn_off:
-    service: shell_command.turn_off_desktop
+#- platform: wake_on_lan
+#  mac_address: !secret desktop_mac_addr
+#  name: Desktop
+#  host: "Master-Desktop"
+#  turn_off:
+#    service: shell_command.turn_off_desktop
   
 #FISH TANK WHITE
 - platform: mqtt

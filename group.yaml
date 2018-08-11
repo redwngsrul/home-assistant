@@ -27,7 +27,7 @@ Lights:
   entities:
     - switch.dining_room_light
     - switch.laundry_light
-    - switch.desktop
+#    - switch.desktop
     - group.den_switches
     - group.living_room
     - camera.den_video
@@ -39,16 +39,10 @@ chromecasts:
   view: yes
   icon: mdi:cast
   entities:
-    - media_player.alexs_bedroom
-    - media_player.alexs_living_room
-    - media_player.garage_audio
-    - media_player.alexs_google_home
-    - media_player.den_cc_ultra
-    - media_player.den_audio
-    - media_player.all_speakers
-    - media_player.den_home
-    - media_player.bedroom_home
     - media_player.plex_web_chrome
+    - group.video_ccs
+    - group.audio_ccs
+    - group.goog_homes
     - group.chromecasts_off
     
 #######################################
@@ -133,6 +127,7 @@ Den_Switches:
     - switch.fireplace_light
     - switch.neons
     - switch.den_subwoofer
+    - binary_sensor.desktop
     - switch.playstation4
     - sensor.current_ps4_app
     - switch.game_equipment
@@ -184,7 +179,28 @@ Cam_Sensors:
     - sensor.living_rm_sound_out
     - camera.living_room_video
     - camera.garage_video
-    
+
+Video_CCs:
+  name: Video Chromecasts
+  entities:
+    - media_player.alexs_bedroom
+    - media_player.alexs_living_room
+    - media_player.den_cc_ultra
+
+Audio_CCs:
+  name: Audio Chromecasts
+  entities:
+    - media_player.garage_audio
+    - media_player.den_audio
+    - media_player.all_speakers
+
+Goog_Homes:
+  name: Google Homes
+  entities:
+    - media_player.alexs_google_home
+    - media_player.den_home
+    - media_player.bedroom_home
+
 Speedtest:
   entities:
     - sensor.speedtest_download

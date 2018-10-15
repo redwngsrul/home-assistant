@@ -6,6 +6,8 @@ switch.bottle_lamp:
   icon: mdi:keg
 switch.dining_room_light:
   icon: mdi:food-fork-drink
+switch.bedroom:
+  icon: mdi:ceiling-light
 switch.playstation4:
   icon: mdi:playstation
 switch.laundry_light:
@@ -14,8 +16,8 @@ switch.fireplace_light:
   icon: mdi:fire
 switch.living_room_light:
   icon: mdi:lightbulb
-#switch.desktop:
-#  icon: mdi:windows
+switch.desktop:
+  icon: mdi:windows
 switch.neons:
   icon: mdi:lava-lamp
 switch.fish_tank_blue_light:
@@ -88,8 +90,8 @@ binary_sensor.garage_camera_recording:
   icon: mdi:video
 binary_sensor.living_room_thermostat_fan:
   icon: mdi:fan
-binary_sensor.desktop:
-  icon: mdi:windows
+#binary_sensor.desktop:
+#  icon: mdi:windows
 
 input_number.off_tmr_slider:
   icon: mdi:timelapse

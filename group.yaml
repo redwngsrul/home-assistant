@@ -5,9 +5,8 @@ default_view:
   view: yes
   icon: mdi:home-outline
   entities:
-    - group.video_cameras
-    - group.thermostat
     - group.garage_door
+    - group.thermostat
     - sun.sun
     - binary_sensor.vacation_monitor
     - sensor.moon
@@ -17,6 +16,7 @@ default_view:
     - sensor.garage_status_abbr
     - device_tracker.pixelxl_pixelxl
     - group.weather
+    - group.video_cameras
     
 ######################################
 
@@ -26,8 +26,9 @@ Lights:
   icon: mdi:lightbulb-outline
   entities:
     - switch.dining_room_light
+    - switch.bedroom
     - switch.laundry_light
-#    - switch.desktop
+    - switch.desktop
     - group.den_switches
     - group.living_room
     - camera.den_video
@@ -70,7 +71,8 @@ Camera_Controls:
     - switch.garage_camera_recording
     - group.cam_sensors
     - camera.den_video
-    - camera.den_2_cam
+    - camera.garage_video
+    #- camera.den_2_cam
     
 #######################################
 
@@ -115,7 +117,7 @@ Video_Cameras:
   control: hidden
   view: no
   entities:
-    - camera.den_2_cam
+    #- camera.den_2_cam
     - camera.den_video
     
 Den_Switches:
@@ -127,7 +129,7 @@ Den_Switches:
     - switch.fireplace_light
     - switch.neons
     - switch.den_subwoofer
-    - binary_sensor.desktop
+#    - binary_sensor.desktop
     - switch.playstation4
     - sensor.current_ps4_app
     - switch.game_equipment
@@ -178,7 +180,6 @@ Cam_Sensors:
     - sensor.den_sound_out
     - sensor.living_rm_sound_out
     - camera.living_room_video
-    - camera.garage_video
 
 Video_CCs:
   name: Video Chromecasts
@@ -239,7 +240,7 @@ RaspPiSysMon:
     - sensor.ipv4_address_wlan0
     - sensor.last_boot
 #    - sensor.ssl_cert_expiry
-    - camera.alexs_map_card
+#    - camera.alexs_map_card
 
 NASSysMon:
   name: QNAP System Monitor

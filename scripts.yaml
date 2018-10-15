@@ -54,6 +54,8 @@ play_playstation4:
       data:
         entity_id: switch.den_subwoofer
     - service: shell_command.receiver_power_toggle
+    - delay:
+        seconds: 1
     - service: shell_command.projector_power_on
     - delay:
         seconds: 8

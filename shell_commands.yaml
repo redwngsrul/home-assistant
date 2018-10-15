@@ -13,7 +13,9 @@ ps4_start_ps_vue: ps4-waker start CUSA00960
 ps4_start_golf_club_2: ps4-waker start CUSA06222
 # ps4_currentapp_update: "cp /home/redwngsrul/.homeassistant/www/ps4cam/1{{ states.sensor.current_ps4_id.state }}.jpg /home/redwngsrul/.homeassistant/www/ps4cam/currentgame.jpg"
 
-receiver_power_toggle: ssh raspberrypi2 irsend SEND_ONCE --count=2 PIONEER POWER_TOGGLE
+receiver_power_toggle: mosquitto_pub -t home/OpenMQTTGateway/commands/IR_Raw -m 8590,4192,596,1526,602,470,598,1522,596,478,602,470,598,1524,594,478,602,1520,598,474,604,1518,600,472,598,1524,604,1518,602,470,598,1524,604,470,600,472,596,476,602,1520,600,1522,596,1526,602,470,600,474,596,478,602,1520,598,1522,596,478,602,470,598,474,604,1518,602,1520,598,1524,596 ; mosquitto_pub -t home/OpenMQTTGateway/commands/IR_NEC -m 2774153415 #ssh raspberrypi2 irsend SEND_ONCE --count=2 PIONEER POWER_TOGGLE
+receiver_power_on: mosquitto_pub -t home/OpenMQTTGateway/commands/IR_Raw -m 8496,4202,574,1550,578,470,578,1546,572,476,572,478,572,1528,572,478,570,1554,574,474,574,1550,568,480,578,1546,572,1526,572,478,572,1552,576,474,576,474,574,1550,570,478,570,1554,574,1524,574,476,572,476,632,416,632,1492,626,422,626,1498,570,478,630,420,630,1494,574,1524,574,1550,578
+receiver_power_off: mosquitto_pub -t home/OpenMQTTGateway/commands/IR_Raw -m 8478,4220,576,1522,576,474,624,1498,630,420,628,422,626,1496,634,416,632,1492,628,422,626,1472,626,424,624,1498,630,1494,624,426,622,1500,628,422,626,1472,626,1498,630,420,630,1494,624,1500,628,422,628,422,626,424,626,424,626,424,624,1472,626,424,624,424,624,1498,630,1494,624,1500,628
 receiver_volume_up: ssh raspberrypi2 irsend SEND_ONCE --count=2 PIONEER VOL_UP
 receiver_volume_down: ssh raspberrypi2 irsend SEND_ONCE --count=2 PIONEER VOL_DOWN
 receiver_input_bd: ssh raspberrypi2 irsend SEND_ONCE --count=2 PIONEER INPUT_BD
@@ -26,8 +28,8 @@ receiver_input_tuner: ssh raspberrypi2 irsend SEND_ONCE --count=2 PIONEER INPUT_
 receiver_mute: ssh raspberrypi2 irsend SEND_ONCE --count=2 PIONEER MUTE
 receiver_signal_select: ssh raspberrypi2 irsend SEND_ONCE --count=2 PIONEER SIGNAL_SELECT
 
-projector_power_on: ssh raspberrypi2 irsend SEND_ONCE OPTOMA POWER_ON
-projector_power_off: ssh raspberrypi2 irsend SEND_ONCE OPTOMA POWER_OFF
+projector_power_on: mosquitto_pub -t home/OpenMQTTGateway/commands/IR_Raw -m 8988,4478,590,538,592,1638,590,538,570,532,596,1634,594,1636,592,536,594,534,596,1636,592,536,562,1668,562,1668,570,532,596,532,588,1642,596,1634,594,534,594,1636,592,536,564,538,650,478,642,486,622,480,650,478,650,1580,588,538,590,1642,586,1642,596,1634,594,1636,592,1638,590,1640,588 #ssh raspberrypi2 irsend SEND_ONCE OPTOMA POWER_ON
+projector_power_off: mosquitto_pub -t home/OpenMQTTGateway/commands/IR_Raw -m 9016,4476,592,536,562,1668,570,532,588,540,648,1582,596,1634,594,534,596,532,616,1614,564,536,592,1638,590,1640,588,540,588,540,620,1610,568,1662,566,562,566,1664,564,1666,564,1666,562,540,590,1642,596,530,588,540,620,1610,566,536,594,534,644,484,644,1584,594,534,564,1666,562,1668,562 #ssh raspberrypi2 irsend SEND_ONCE OPTOMA POWER_OFF
 projector_hdmi1: ssh raspberrypi2 irsend SEND_ONCE OPTOMA HDMI1
 projector_hdmi2: ssh raspberrypi2 irsend SEND_ONCE OPTOMA HDMI2
 projector_vga1: ssh raspberrypi2 irsend SEND_ONCE OPTOMA VGA1

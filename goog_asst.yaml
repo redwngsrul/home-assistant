@@ -23,6 +23,9 @@ entity_config:
     expose: true
     name: Bottle Lamp
 #    type: light
+  switch.bedroom:
+    expose: true
+    name: Bedroom Light
   switch.dining_room_light:
     expose: true
     name: Dining Light

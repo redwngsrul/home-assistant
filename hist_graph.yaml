@@ -3,6 +3,7 @@ gr1:
   entities:
     - sensor.weather_temperature
     - sensor.garage_temp
+    - sensor.living_room_thermostat_temperature
   hours_to_show: 24
   refresh: 30
 

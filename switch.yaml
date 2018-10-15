@@ -29,34 +29,24 @@
   retain: true
 
 #DINING ROOM LIGHT
-- platform: mqtt
+- platform: tplink
   name: Dining Room Light
-  state_topic: "home/sonoff/dining_room/1/stat"
-  command_topic: "home/sonoff/dining_room/1"
-  qos: 1
-  payload_on: "on"
-  payload_off: "off"
-  retain: true
+  host: 192.168.1.106
+
+#BEDROOM
+- platform: tplink
+  name: Bedroom
+  host: 192.168.1.109
   
 #LAUNDRY LIGHT
-- platform: mqtt
+- platform: tplink
   name: Laundry Light
-  state_topic: "dual/laundry/relay1"
-  command_topic: "dual/laundry/relay1/set"
-  qos: 1
-  payload_on: "1"
-  payload_off: "0"
-  retain: true
+  host: 192.168.1.108
  
 #FIREPLACE LIGHT 
-- platform: mqtt
+- platform: tplink
   name: Fireplace Light
-  state_topic: "dual/fireplace/relay1"
-  command_topic: "dual/fireplace/relay1/set"
-  qos: 1
-  payload_on: "1"
-  payload_off: "0"
-  retain: true
+  host: 192.168.1.113
   
 #PLAYSTATION 4  
 - platform: command_line
@@ -88,12 +78,12 @@
   retain: true
   
 #WOL
-#- platform: wake_on_lan
-#  mac_address: !secret desktop_mac_addr
-#  name: Desktop
-#  host: "Master-Desktop"
-#  turn_off:
-#    service: shell_command.turn_off_desktop
+- platform: wake_on_lan
+  mac_address: !secret desktop_mac_addr
+  name: Desktop
+  host: "Master-Desktop"
+  turn_off:
+    service: shell_command.turn_off_desktop
   
 #FISH TANK WHITE
 - platform: mqtt

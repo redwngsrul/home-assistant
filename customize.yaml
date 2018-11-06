@@ -33,6 +33,10 @@ switch.garage_camera_recording:
 switch.game_equipment:
   friendly_name: "Game Equipment"
   icon: mdi:projector-screen
+switch.living_room_christmas_light:
+  icon: mdi:pine-tree
+switch.kitchen_christmas_light:
+  icon: mdi:pine-tree-box
   
 script.picture_on_main:
   icon: mdi:camera

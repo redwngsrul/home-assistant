@@ -1,7 +1,4 @@
 project_id: homeassistant-88993
-client_id: !secret goog_client_id
-access_token: !secret goog_access_tok
-agent_user_id: redwngsrul
 api_key: !secret goog_api_key
 expose_by_default: false
 exposed_domains:
@@ -70,6 +67,12 @@ entity_config:
     expose: true
     name: Game Equipment
 #    type: switch
+  switch.kitchen_christmas_light:
+    expose: true
+    name: Kitchen Christmas Lights
+  switch.living_room_christmas_light:
+    expose: true
+    name: Front Christmas Lights
 
   script.bedroom_tv_on:
     expose: true

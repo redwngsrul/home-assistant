@@ -47,6 +47,16 @@
 - platform: tplink
   name: Fireplace Light
   host: 192.168.1.113
+
+#Living Room Christmas Light PLUG
+- platform: tplink
+  name: Living Room Christmas Light
+  host: 192.168.1.105
+  
+#Kitchen Christmas Light PLUG 
+- platform: tplink
+  name: Kitchen Christmas Light
+  host: 192.168.1.114
   
 #PLAYSTATION 4  
 - platform: command_line

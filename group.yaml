@@ -26,6 +26,7 @@ Lights:
   icon: mdi:lightbulb-outline
   entities:
     - switch.dining_room_light
+    - switch.kitchen_christmas_light
     - switch.bedroom
     - switch.laundry_light
     - switch.desktop
@@ -56,7 +57,6 @@ RaspPi:
     - group.rasppisysmon
     - group.speedtest
     - group.datetime
-    - history_graph.temperature_graph
     - group.nassysmon
 
 ######################################
@@ -96,6 +96,8 @@ Settings:
     - automation.fish_tank_lights_on
     - automation.no_fish_lights_at_bedtime
     - automation.tank_lights_on_in_morning
+    - automation.christmas_lights_on
+    - automation.christmas_lights_off
     - input_boolean.vacation
     - script.motion_sensing
     - script.chromecast_off_tmr
@@ -138,7 +140,7 @@ Den_Switches:
     - switch.fish_tank_white_light
 #    - script.play_playstation4
 #    - script.play_turn_off
-    - cover.den_volume_control
+#    - cover.den_volume_control
 
 Thermostat:
   name: Home Thermostat
@@ -160,6 +162,7 @@ Living_Room:
   entities:
     - switch.bottle_lamp
     - switch.living_room_light
+    - switch.living_room_christmas_light
     - script.living_room_tv_on
     - script.living_room_tv_off
 #    - cover.living_room_volume
@@ -213,7 +216,7 @@ DateTime:
   entities:
     - sensor.date
     - sensor.time
-    - history_graph.hass_pc_monitor
+    - history_graph.temperature_graph
 
 garage_door:
   name: Garage Door
@@ -234,11 +237,12 @@ chromecasts_off:
 RaspPiSysMon:
   name: Home Assistant PC Monitor
   entities:
-    - sensor.cpu_used
-    - sensor.disk_used_
-    - sensor.ram_used
+    - sensor.processor_use
+    - sensor.memory_use_percent
+    - sensor.disk_use_percent_
     - sensor.ipv4_address_wlan0
     - sensor.last_boot
+    - history_graph.hass_pc_monitor
 #    - sensor.ssl_cert_expiry
 #    - camera.alexs_map_card
 
@@ -258,3 +262,4 @@ Weather:
     - sensor.weather_humidity
     - sensor.atmospheric_press
     - sensor.weather_cloudiness
+

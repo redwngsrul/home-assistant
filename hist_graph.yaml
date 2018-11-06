@@ -10,9 +10,9 @@ gr1:
 gr2:
   name: HASS PC Monitor
   entities:
-    - sensor.cpu_used
-    - sensor.ram_used
-    - sensor.disk_used_
+    - sensor.processor_use
+    - sensor.memory_use_percent
+    - sensor.disk_use_percent_
 
 gr3:
   name: Thermostat

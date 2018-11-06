@@ -176,3 +176,28 @@
   action:
     - service: switch.turn_off
       entity_id: switch.neons
+
+#turn on christmas lights
+- alias: 'Christmas Lights ON'
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '-00:30:00'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.kitchen_christmas_light
+    - service: switch.turn_on
+      entity_id: switch.living_room_christmas_light
+
+#turn off christmas lights
+- alias: 'Christmas Lights OFF'
+  initial_state: true
+  trigger:
+    - platform: time
+      at: '22:30:00'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.kitchen_christmas_light
+    - service: switch.turn_off
+      entity_id: switch.living_room_christmas_light

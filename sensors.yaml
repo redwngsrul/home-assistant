@@ -178,3 +178,25 @@
                        {% elif is_state("sensor.garage_sound", "2") %}
                        Sound Alarm!
                        {% endif %}
+
+    moonphases:
+      friendly_name: 'Moon Phases'
+      value_template: '{{ states.sensor.moon.state }}'
+      entity_picture_template: >
+        {% if is_state('sensor.moon', 'new_moon') %}
+          /local/moonphases/new.jpg
+        {% elif is_state('sensor.moon', 'waxing_crescent') %}
+          /local/moonphases/waxing_crescent.jpg
+        {% elif is_state('sensor.moon', 'first_quarter') %}
+          /local/moonphases/first_quarter.jpg
+        {% elif is_state('sensor.moon', 'waxing_gibbous') %}
+          /local/moonphases/waxing_gibbous.jpg
+        {% elif is_state('sensor.moon', 'full_moon') %}
+          /local/moonphases/full.jpg
+        {% elif is_state('sensor.moon', 'waning_gibbous') %}
+          /local/moonphases/waning_gibbous.jpg
+        {% elif is_state('sensor.moon', 'last_quarter') %}
+          /local/moonphases/last.jpg
+        {% elif is_state('sensor.moon', 'waning_crescent') %}
+          /local/moonphases/waning_crescent.jpg
+        {% endif %}

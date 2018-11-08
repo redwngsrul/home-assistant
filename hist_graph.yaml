@@ -4,6 +4,7 @@ gr1:
     - sensor.weather_temperature
     - sensor.garage_temp
     - sensor.living_room_thermostat_temperature
+    - sensor.living_room_thermostat_target
   hours_to_show: 24
   refresh: 30
 

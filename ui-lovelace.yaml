@@ -1,0 +1,79 @@
+title: Alex's Domicile
+views:
+  - title: Main Home Stuff
+    panel: false
+    background: radial-gradient(red, white)
+    badges:
+      - sun.sun
+      - sensor.moonphases
+      - sensor.weather_symbol
+    cards: 
+      - type: vertical-stack
+        cards:
+          - type: picture-entity
+            entity: camera.living_room_video
+            show_name: false
+            show_state: false
+          - type: horizontal-stack
+            cards:
+              - type: entity-button
+                entity: switch.living_room_light
+                tap_action: toggle
+              - type: entity-button
+                entity: switch.bottle_lamp
+                tap_action: toggle
+              - type: entity-button
+                entity: switch.living_room_christmas_light
+                name: X-mas
+                tap_action: toggle
+          - type: horizontal-stack
+            cards:
+              - type: thermostat
+                entity: climate.living_room
+              - type: glance
+                entities:
+                  - sensor.time
+                  - sensor.date
+          - type: entities
+            entities:
+              - sensor.weather_temperature
+              - sensor.atmospheric_press
+              - sensor.weather_humidity
+      - type: vertical-stack
+        cards:
+          - type: picture-entity
+            entity: camera.den_video
+            show_name: false
+            show_state: false
+          - type: horizontal-stack
+            cards:
+              - type: entity-button
+                entity: switch.den_light
+                tap_action: toggle
+              - type: entity-button
+                entity: switch.fireplace_light
+                tap_action: toggle
+              - type: entity-button
+                entity: switch.neons
+                tap_action: toggle
+          - type: picture-entity
+            entity: camera.garage_video
+          - type: horizontal-stack
+            cards:
+              - type: vertical-stack
+                cards:
+                  - type: horizontal-stack
+                    cards: 
+                      - type: entity-button
+                        entity: binary_sensor.garage_control_online
+                      - type: entity-button
+                        entity: cover.garage
+                        tap_action: call-service
+                        hold_action: more-info
+                        service: cover.stop_cover
+                  - type: entities
+                    entities:
+                      - entity: sensor.garage_temperature
+              - type: picture-entity
+                entity: device_tracker.pixelxl_pixelxl
+                image: /local/pic3.jpg

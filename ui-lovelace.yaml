@@ -1,79 +1,372 @@
 title: Alex's Domicile
+
 views:
-  - title: Main Home Stuff
+
+  - title: Overview
     panel: false
     background: radial-gradient(red, white)
     badges:
       - sun.sun
       - sensor.moonphases
       - sensor.weather_symbol
+
     cards: 
+
       - type: vertical-stack
         cards:
-          - type: picture-entity
-            entity: camera.living_room_video
-            show_name: false
-            show_state: false
+
+          - type: picture-glance
+            camera_image: camera.living_room_video
+            entities:
+              - binary_sensor.living_room_camera_recording
+
           - type: horizontal-stack
             cards:
+
               - type: entity-button
                 entity: switch.living_room_light
                 tap_action: toggle
+
               - type: entity-button
                 entity: switch.bottle_lamp
                 tap_action: toggle
+
               - type: entity-button
                 entity: switch.living_room_christmas_light
                 name: X-mas
                 tap_action: toggle
+
           - type: horizontal-stack
             cards:
+
               - type: thermostat
                 entity: climate.living_room
+
               - type: glance
                 entities:
                   - sensor.time
                   - sensor.date
+
           - type: entities
             entities:
               - sensor.weather_temperature
               - sensor.atmospheric_press
               - sensor.weather_humidity
+
       - type: vertical-stack
         cards:
+
           - type: picture-entity
             entity: camera.den_video
             show_name: false
             show_state: false
+
           - type: horizontal-stack
             cards:
+
               - type: entity-button
                 entity: switch.den_light
                 tap_action: toggle
+
               - type: entity-button
                 entity: switch.fireplace_light
                 tap_action: toggle
+
               - type: entity-button
                 entity: switch.neons
                 tap_action: toggle
-          - type: picture-entity
-            entity: camera.garage_video
+
           - type: horizontal-stack
             cards:
+
+              - type: entity-button
+                entity: switch.game_equipment
+                tap_action: toggle
+
+              - type: entity-button
+                entity: switch.den_subwoofer
+                tap_action: toggle
+
+              - type: entity-button
+                entity: switch.playstation4
+                tap_action: toggle
+
+          - type: horizontal-stack
+            cards:
+
+              - type: entity-button
+                entity: switch.fish_tank_white_light
+                tap_action: toggle
+
+              - type: entity-button
+                entity: switch.fish_tank_blue_light
+                tap_action: toggle
+
+              - type: entity-button
+                entity: switch.laundry_light
+                tap_action: toggle
+
+          - type: horizontal-stack
+            cards:
+
+              - type: entity-button
+                entity: switch.bedroom
+                tap_action: toggle
+
+              - type: entity-button
+                entity: switch.dining_room_light
+                tap_action: toggle
+
+              - type: entity-button
+                entity: switch.kitchen_christmas_light
+                tap_action: toggle
+
+      - type: vertical-stack
+        cards:
+
+          - type: picture-entity
+            entity: camera.garage_video
+            show_name: false
+            show_state: false
+
+          - type: horizontal-stack
+            cards:
+
               - type: vertical-stack
                 cards:
+
                   - type: horizontal-stack
                     cards: 
+
                       - type: entity-button
                         entity: binary_sensor.garage_control_online
+
                       - type: entity-button
                         entity: cover.garage
                         tap_action: call-service
                         hold_action: more-info
                         service: cover.stop_cover
+
                   - type: entities
                     entities:
                       - entity: sensor.garage_temperature
+
               - type: picture-entity
                 entity: device_tracker.pixelxl_pixelxl
                 image: /local/pic3.jpg
+
+          - type: history-graph
+            title: Temperature Graph
+            hours_to_show: 12
+            entities:
+              - sensor.weather_temperature
+              - sensor.garage_temp
+              - sensor.living_room_thermostat_target
+              - sensor.living_room_thermostat_temperature
+
+##### Systems #####
+
+  - title: Systems
+    panel: false
+    background: radial-gradient(green, white)
+    cards:
+
+      - type: vertical-stack
+        cards:
+
+          - type: history-graph
+            title: Home Assistant
+            entities:
+              - sensor.memory_use_percent
+              - sensor.processor_use
+              - sensor.disk_use_percent_
+
+          - type: entities
+            title: HASS System
+            entities:
+              - sensor.ipv4_address_wlan0
+              - sensor.last_boot
+              - type: section
+                label: Speedtest
+              - sensor.speedtest_download
+              - sensor.speedtest_upload
+              - sensor.speedtest_ping
+
+      - type: vertical-stack
+        cards:
+
+          - type: history-graph
+            title: QNAP
+            entities:
+              - sensor.nasf34bde_cpu_usage
+              - sensor.nasf34bde_memory_usage
+
+          - type: entities
+            title: QNAP System
+            entities:
+              - sensor.nasf34bde_status
+              - sensor.nas_uptime
+              - sensor.nasf34bde_volume_used_datavol1
+              - sensor.nasf34bde_volume_used_datavol2
+
+##### Cast #####
+
+  - title: Cast
+    panel: false
+    background: radial-gradient(blue, white)
+    cards:
+
+      - type: media-control
+        entity: media_player.alexs_bedroom
+
+      - type: media-control
+        entity: media_player.alexs_google_home
+
+      - type: media-control
+        entity: media_player.alexs_living_room
+
+      - type: media-control
+        entity: media_player.bedroom_home
+
+      - type: media-control
+        entity: media_player.den_audio
+
+      - type: media-control
+        entity: media_player.den_cc_ultra
+
+      - type: media-control
+        entity: media_player.den_home
+
+      - type: media-control
+        entity: media_player.garage_audio
+
+      - type: media-control
+        entity: media_player.all_speakers
+
+##### Automations/Scripts #####
+
+  - title: Automations/Scripts
+    panel: false
+    background: radial-gradient(orange, white)
+    cards:
+
+      - type: vertical-stack
+        cards:
+
+          - type: entities
+            title: Automations
+            entities:
+              - automation.bottle_lamp_on_workdays
+              - automation.bottle_lamp_off
+              - automation.camera_recordings_on
+              - automation.camera_recordings_off
+              - automation.christmas_lights_on
+              - automation.christmas_lights_off
+              - automation.den_lamp_on
+              - automation.den_lamp_off
+              - automation.den_lamp_vaca_on
+              - automation.den_lamp_vaca_off
+
+      - type: vertical-stack
+        cards:
+
+          - type: entities
+            entities:
+              - automation.dining_light_on_workdays
+              - automation.dining_light_off
+              - automation.fish_tank_lights_on
+              - automation.garage_offline_notify
+              - automation.garage_open_notify
+              - automation.laundry_light_on_workdays
+              - automation.laundry_light_off
+              - automation.neons_off
+              - automation.nest_home_mode
+              - automation.nest_away_mode
+              - automation.no_fish_lights_at_bedtime
+              - type: divider
+              - input_boolean.vacation
+
+      - type: vertical-stack
+        cards:
+
+          - type: entities
+            title: Scripts
+            entities:
+              - script.bedroom_tv_on
+              - script.chromecast_off_tmr
+              - script.depart_work
+              - script.motion_sensing
+              - script.music_in_den
+              - script.open_garage
+              - script.play_playstation4
+              - script.play_turn_off
+              - script.reboot_pi
+              - script.sleep_tmr
+
+##### Cameras #####
+
+  - title: Cameras
+    panel: false
+    background: radial-gradient(purple, white)
+    cards:
+
+      - type: vertical-stack
+        cards:
+
+          - type: entities
+            title: Living Room
+            entities:
+              - type: divider
+
+          - type: picture-entity
+            entity: camera.living_room_video
+            show_name: false
+            show_state: false
+
+          - type: entities
+            entities:
+              - binary_sensor.living_room_camera_recording
+              - sensor.living_rm_motion_out
+              - sensor.living_rm_sound_out
+              - switch.living_rm_camera_recording
+
+      - type: vertical-stack
+        cards:
+
+          - type: entities
+            title: Den
+            entities:
+              - type: divider
+
+          - type: picture-entity
+            entity: camera.den_video
+            show_name: false
+            show_state: false
+
+          - type: entities
+            entities:
+              - binary_sensor.den_camera_recording
+              - sensor.den_motion_out
+              - sensor.den_sound_out
+              - switch.den_camera_recording
+
+      - type: vertical-stack
+        cards:
+
+          - type: entities
+            title: Garage
+            entities:
+              - type: divider
+
+          - type: picture-entity
+            entity: camera.garage_video
+            show_name: false
+            show_state: false
+
+          - type: entities
+            entities:
+              - binary_sensor.garage_camera_recording
+              - sensor.garage_motion_out
+              - sensor.garage_sound_out
+              - switch.garage_camera_recording
+

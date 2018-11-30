@@ -16,9 +16,12 @@ views:
         cards:
 
           - type: picture-glance
-            camera_image: camera.living_room_video
+            camera_image: camera.living
             entities:
-              - binary_sensor.living_room_camera_recording
+              - switch.motion_detection_living
+              - switch.motion_recording_living
+              - sensor.living_motion_detected
+              #- binary_sensor.living_room_camera_recording
 
           - type: horizontal-stack
             cards:
@@ -26,15 +29,18 @@ views:
               - type: entity-button
                 entity: switch.living_room_light
                 tap_action: toggle
+                hold_action: more-info
 
               - type: entity-button
                 entity: switch.bottle_lamp
                 tap_action: toggle
+                hold_action: more-info
 
               - type: entity-button
                 entity: switch.living_room_christmas_light
                 name: X-mas
                 tap_action: toggle
+                hold_action: more-info
 
           - type: horizontal-stack
             cards:
@@ -67,14 +73,17 @@ views:
               - type: entity-button
                 entity: switch.den_light
                 tap_action: toggle
+                hold_action: more-info
 
               - type: entity-button
                 entity: switch.fireplace_light
                 tap_action: toggle
+                hold_action: more-info
 
               - type: entity-button
                 entity: switch.neons
                 tap_action: toggle
+                hold_action: more-info
 
           - type: horizontal-stack
             cards:
@@ -82,14 +91,17 @@ views:
               - type: entity-button
                 entity: switch.game_equipment
                 tap_action: toggle
+                hold_action: more-info
 
               - type: entity-button
                 entity: switch.den_subwoofer
                 tap_action: toggle
+                hold_action: more-info
 
               - type: entity-button
                 entity: switch.playstation4
                 tap_action: toggle
+                hold_action: more-info
 
           - type: horizontal-stack
             cards:
@@ -97,14 +109,22 @@ views:
               - type: entity-button
                 entity: switch.fish_tank_white_light
                 tap_action: toggle
+                hold_action: more-info
 
               - type: entity-button
                 entity: switch.fish_tank_blue_light
                 tap_action: toggle
+                hold_action: more-info
 
               - type: entity-button
                 entity: switch.laundry_light
                 tap_action: toggle
+                hold_action: more-info
+                
+          - type: entities
+            title: Miscellaneous
+            entities:
+              - type: divider
 
           - type: horizontal-stack
             cards:
@@ -112,14 +132,17 @@ views:
               - type: entity-button
                 entity: switch.bedroom
                 tap_action: toggle
+                hold_action: more-info
 
               - type: entity-button
                 entity: switch.dining_room_light
                 tap_action: toggle
+                hold_action: more-info
 
               - type: entity-button
                 entity: switch.kitchen_christmas_light
                 tap_action: toggle
+                hold_action: more-info          
 
       - type: vertical-stack
         cards:
@@ -155,14 +178,12 @@ views:
                 entity: device_tracker.pixelxl_pixelxl
                 image: /local/pic3.jpg
 
-          - type: history-graph
-            title: Temperature Graph
-            hours_to_show: 12
+          - type: picture-glance
+            camera_image: camera.front_porch
             entities:
-              - sensor.weather_temperature
-              - sensor.garage_temp
-              - sensor.living_room_thermostat_target
-              - sensor.living_room_thermostat_temperature
+              - switch.motion_detection_front_porch
+              - switch.motion_recording_front_porch
+              - sensor.front_porch_motion_detected
 
 ##### Systems #####
 
@@ -208,6 +229,15 @@ views:
               - sensor.nas_uptime
               - sensor.nasf34bde_volume_used_datavol1
               - sensor.nasf34bde_volume_used_datavol2
+
+      - type: history-graph
+        title: Temperature Graph
+        hours_to_show: 12
+        entities:
+          - sensor.weather_temperature
+          - sensor.garage_temp
+          - sensor.living_room_thermostat_target
+          - sensor.living_room_thermostat_temperature
 
 ##### Cast #####
 
@@ -319,19 +349,15 @@ views:
               - type: divider
 
           - type: picture-entity
-            entity: camera.living_room_video
+            entity: camera.living
             show_name: false
             show_state: false
 
           - type: entities
             entities:
-              - binary_sensor.living_room_camera_recording
-              - sensor.living_rm_motion_out
-              - sensor.living_rm_sound_out
-              - switch.living_rm_camera_recording
-
-      - type: vertical-stack
-        cards:
+              - switch.motion_detection_living
+              - switch.motion_recording_living
+              - sensor.living_motion_detected
 
           - type: entities
             title: Den
@@ -369,4 +395,20 @@ views:
               - sensor.garage_motion_out
               - sensor.garage_sound_out
               - switch.garage_camera_recording
+
+          - type: entities
+            title: Front Porch
+            entities:
+              - type: divider
+
+          - type: picture-entity
+            entity: camera.front_porch
+            show_name: false
+            show_state: false
+
+          - type: entities
+            entities:
+              - switch.motion_detection_front_porch
+              - switch.motion_recording_front_porch
+              - sensor.front_porch_motion_detected
 

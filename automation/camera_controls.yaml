@@ -8,7 +8,9 @@
     - service: switch.turn_on
       entity_id: switch.den_camera_recording
     - service: switch.turn_on
-      entity_id: switch.living_rm_camera_recording
+      entity_id: switch.motion_recording_living
+    - service: switch.turn_on
+      entity_id: switch.motion_recording_front_porch
     - service: switch.turn_on
       entity_id: switch.garage_camera_recording
         
@@ -24,6 +26,8 @@
     - service: switch.turn_off
       entity_id: switch.den_camera_recording
     - service: switch.turn_off
-      entity_id: switch.living_rm_camera_recording
+      entity_id: switch.motion_recording_living
+    - service: switch.turn_off
+      entity_id: switch.motion_recording_front_porch
     - service: switch.turn_off
       entity_id: switch.garage_camera_recording

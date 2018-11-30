@@ -86,6 +86,9 @@ entity_config:
     expose: true
     name: Motion Sensing
 #    type: switch
+  script.sleep_tmr:
+    expose: true
+    name: Sleep Timer
 
   cover.garage:
     expose: true

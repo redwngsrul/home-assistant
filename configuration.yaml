@@ -20,6 +20,25 @@ http:
   ip_ban_enabled: true
   login_attempts_threshold: 3
 
+amcrest:
+  - host: 192.168.1.101
+    name: Living
+    username: admin
+    password: !secret amcrest_pw
+    sensors:
+      - motion_detector
+    switches:
+      - motion_detection
+      - motion_recording
+  - host: 192.168.1.115
+    name: Front Porch
+    username: admin
+    password: !secret amcrest_pw
+    sensors:
+      - motion_detector
+    switches:
+      - motion_detection
+      - motion_recording
 automation: !include_dir_merge_list automation
 #automation: !include automations.yaml
 binary_sensor: !include binary_sensors.yaml

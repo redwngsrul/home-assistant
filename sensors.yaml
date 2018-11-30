@@ -28,10 +28,10 @@
   command: ps4-waker search | grep -w "running-app-name" | cut -c 24- | rev | cut -c 3-  | rev | sed 's/[!@#\$%^&*(®)™]//g'
   scan_interval: 30
   
-- platform: command_line
-  name: Living Room Motion
-  command: !secret liv_rm_motion_alm
-  scan_interval: 2
+#- platform: command_line
+#  name: Living Room Motion
+#  command: !secret liv_rm_motion_alm
+#  scan_interval: 2
   
 - platform: command_line
   name: Den Motion
@@ -43,10 +43,10 @@
   command: !secret garage_motion_alm
   scan_interval: 2
   
-- platform: command_line
-  name: Living Room Sound
-  command: !secret liv_rm_sound_alm
-  scan_interval: 2
+#- platform: command_line
+#  name: Living Room Sound
+#  command: !secret liv_rm_sound_alm
+#  scan_interval: 2
   
 - platform: command_line
   name: Den Sound

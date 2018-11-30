@@ -20,12 +20,12 @@
   payload_on: 1
   payload_off: 0
 
-- platform: command_line
-  command: !secret liv_rm_cam_rcrding
-  name: 'Living Room Camera Recording'
+#- platform: command_line
+#  command: !secret liv_rm_cam_rcrding
+#  name: 'Living Room Camera Recording'
 #  sensor_class: None
-  payload_on: 1
-  payload_off: 0
+#  payload_on: 1
+#  payload_off: 0
 
 - platform: command_line
   command: !secret garage_cam_rcrding

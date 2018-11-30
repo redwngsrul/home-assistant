@@ -27,6 +27,8 @@
   username: !secret cam_un
   password: !secret cam_pw
 
+- platform: amcrest
+
 #- #platform: mjpeg
   #mjpeg_url: http://192.168.1.94:8080/?action=stream
   #name: Den 2 Cam

@@ -99,6 +99,6 @@ updater:
 vacuum:
   - platform: roomba
     host: 192.168.1.117
-    username: "3166480C80418590"
-    password: ":1:1545933578:riDW87HMMOnEDmK1"
+    username: !secret roomba_user
+    password: !secret roomba_pw
 zone: !include zones.yaml

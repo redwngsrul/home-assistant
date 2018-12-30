@@ -96,4 +96,9 @@ tts:
   - platform: google
 updater:
 #0.47.0  include_used_components: true
+vacuum:
+  - platform: roomba
+    host: 192.168.1.117
+    username: "3166480C80418590"
+    password: ":1:1545933578:riDW87HMMOnEDmK1"
 zone: !include zones.yaml

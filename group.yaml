@@ -153,7 +153,8 @@ Thermostat:
     - sensor.living_room_thermostat_operation_mode
     - sensor.living_room_thermostat_hvac_state
     - binary_sensor.living_room_thermostat_fan
-    - camera.living_room_video
+    - camera.living
+    - camera.front_porch
    
 Living_Room:
   name: Living Room

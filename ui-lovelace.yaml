@@ -37,8 +37,7 @@ views:
                 hold_action: more-info
 
               - type: entity-button
-                entity: switch.living_room_christmas_light
-                name: X-mas
+                entity: switch.dining_room_light
                 tap_action: toggle
                 hold_action: more-info
 
@@ -135,14 +134,23 @@ views:
                 hold_action: more-info
 
               - type: entity-button
-                entity: switch.dining_room_light
+                entity: switch.living_room_christmas_light
+                name: X-mas
                 tap_action: toggle
                 hold_action: more-info
 
               - type: entity-button
                 entity: switch.kitchen_christmas_light
                 tap_action: toggle
-                hold_action: more-info          
+                hold_action: more-info
+
+          - type: horizontal-stack
+            cards:
+
+              - type: entity-button
+                entity: vacuum.roomba
+                tap_action: toggle
+                hold_action: more-info
 
       - type: vertical-stack
         cards:
